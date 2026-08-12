@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Website</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="siteHeader">
+
+  <!-- Top bar: social icons left, contact button right -->
+  <div class="top-bar" id="topBar">
+    <div class="top-bar-inner">
+
+      <!-- left slot: social icons AND hamburger live here, stacked in the
+           same spot, so this column's position/width never shifts -->
+      <div class="header-left" id="headerLeft">
+        <div class="social-icons" id="socialIcons">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+         
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <h4 class ="menu-txt">Menu</h4>
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <a href="#" class="logo" id="logo">
+       <img src="images/logo/Full Logo Horizontal PNG.png" alt="Logo">
+      </a>
+
+      <div class="contact-wrap">
+        <a href="#contact" class="btn-contact">Contact Us</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Second nav: main menu -->
+  <nav class="main-nav" id="mainNav">
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About Me</a></li>
+      <li><a href="#">Cities</a></li>
+      <li><a href="#">City Guides</a></li>
+      <li><a href="#">Planning</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#">Gallery</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<!-- Hero image carousel section -->
+<section class="hero-section" id="heroSection">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('./images/img6.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images/img4.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images/img1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images/img8.jpg')"></div>
+  </div>
+  <!-- permanent black-transparent overlay, sits on top of the slides at
+       all times — not tied to scroll or any JS in any way. Now carries a
+       top-to-bottom gradient so the header (logo/nav) reads clearly
+       against any hero photo -->
+  <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+    <!-- <span class="hero-kicker">Welcome to your</span> -->
+    <h1 class="hero-title">WanderLand</h1>
+    <p class="para ">We craft journeys across every corner of the country.<br>Discover the beauty of your homeland with WanderIndia.</p>
+
+   
+  </div>
+</section>
+
+<!-- ============ PACKAGES SECTION ============ -->
+<section class="packages-section" id="packagesSection">
+  <div class="container ">
+
+    <div class="packages-heading">
+      <div class="heading-left">
+        <span class="packages-eyebrow">Curated Journeys</span>
+        <h2>Explore Our <span class="heading-highlight">Packages</span></h2>
+      </div>
+      <div class="heading-right">
+        <p class="para">Handpicked getaways across India's most breathtaking regions — pick a travel style below to see what's on offer, or browse everything at once.</p>
+      </div>
+    </div>
+
+    <div class="packages-toolbar">
+      <div class="packages-filter" id="packagesFilter" role="tablist">
+        <button class="filter-btn active" data-region="bike">Bike Packages</button>
+        <button class="filter-btn" data-region="car">Car Packages</button>
+      </div>
+
+      <!-- carousel prev/next arrows get injected here by owl (navContainer
+           option in script.js) so they sit directly opposite the region
+           tabs instead of floating below the cards -->
+      <div class="packages-carousel-nav" id="packagesNav"></div>
+    </div>
+
+    <div class="packages-carousel-wrap">
+      <div class="owl-carousel packages-carousel" id="packagesCarousel"></div>
+    </div>
+<style>
+  /* From Uiverse.io by gharsh11032000 */ 
+/* From Uiverse.io by gharsh11032000 (adapted) */
+.long-btn {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    height: 41px;
+    padding: 4px 6px 4px 15px;
+    font-size: 14px;
+    color: var(--white);
+    border: 1px solid var(--primary);
+    border-radius: 999px;
+    background-color: var(--primary);
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.long-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 62px;
+    height: 62px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: 0;
+    background-color: var(--heading);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.long-btn:hover::before {
+    scale: 3;
+}
+
+.long-btn:hover {
+    color: var(--white);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--heading);
+}
+
+/* Text */
+.long-btn .btn-text {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+/* Arrow */
+.btn-arrow {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--primary);
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1),
+                color 0.3s ease;
+}
+
+.long-btn:hover .btn-arrow {
+    color: var(--heading);
+}
+</style>
+    <!-- quick jump to the full list, separate from the region tabs above -->
+  <div class="packages-bottom-action">
+    <button class="long-btn">
+        <span class="btn-text">View All Packages</span>
+        <span class="btn-arrow">
+            <i class="bi bi-arrow-right"></i>
+        </span>
+    </button>
+</div>
+
+  </div>
+</section>
+
+<!-- ============ ABOUT SECTION ============ -->
+<section class="about-section" id="aboutSection">
+  <div class="container">
+
+    <!-- stats strip, same numbers-first layout as the reference -->
+    <div class="about-stats">
+      <div class="stat-card">
+        <h3>21,24,000</h3>
+        <span>Kilometers</span>
+        <p class="para">passed by our travelers</p>
+      </div>
+      <div class="stat-card">
+        <h3>8,200</h3>
+        <span>Travelers</span>
+        <p class="para">participated in our tours</p>
+      </div>
+      <div class="stat-card">
+        <h3>345</h3>
+        <span>Positive Feedback</span>
+        <p class="para">for all years of the company</p>
+      </div>
+      <div class="stat-card">
+        <h3>14</h3>
+        <span>Years of Work</span>
+        <p class="para">for your wonderful experiences</p>
+      </div>
+    </div>
+      </div>
+
+    <!-- text-on-image block, mirrors the "Get to Know" layout from the reference:
+         one full background photo, text sitting on top of it, no side image.
+         Now has a stronger left-to-right gradient (so the left-aligned text
+         always reads clearly) plus a hover animation on the whole block. -->
+    <div class="about-media">
+      <img class="about-bg" src="./images/img8.jpg" alt="Punjab and the Himalayas" onerror="this.src='https://placehold.co/1400x700/1ea0fe/ffffff?text=Add+Background+Photo'">
+      <div class="about-overlay"></div>
+<div class="container">
+      <div class="about-text-inner">
+        <span class="about-eyebrow"><i class="bi bi-compass"></i> Get to Know</span>
+        <h2 class="about-title">Punjab &amp; The Himalayas</h2>
+        <p class="para">Golden mustard fields, turquoise high-altitude lakes and centuries-old forts — one of the most diverse stretches of road in the country, and a valley unlike anywhere else, are waiting for you.</p>
+
+        <!-- <div class="about-links">
+          <a href="#">Attractions <i class="bi bi-arrow-right"></i></a>
+          <a href="#">Similar Destinations <i class="bi bi-arrow-right"></i></a>
+        </div> -->
+
+      <button class="long-btn">
+        <span class="btn-text">About Us</span>
+        <span class="btn-arrow">
+            <i class="bi bi-arrow-right"></i>
+        </span>
+    </button>
+      </div>
+      </div>
+    </div>
+
+
+</section>
+
+<!-- ============ FEATURED SECTION ============ -->
+<section class="featured-section" id="featuredSection">
+  <div class="container">
+
+    <div class="packages-heading">
+      <div class="heading-left">
+        <span class="packages-eyebrow">Hand-Picked For You</span>
+        <h2>Featured <span class="heading-highlight">Expeditions</span></h2>
+      </div>
+      <div class="heading-right">
+        <p class="para">The tours our travelers keep coming back for — a closer look at each one, side by side with the story behind it.</p>
+      </div>
+    </div>
+
+    <div class="featured-grid" id="featuredGrid"></div>
+
+  </div>
+</section>
+
+<!-- ============ CHOOSE YOUR SEASON SECTION ============ -->
+<section class="season-section" id="seasonSection">
+  <div class="container">
+
+    <div class="packages-heading">
+      <div class="heading-left">
+        <span class="packages-eyebrow">Choose Your Season</span>
+        <h2>Best Time <span class="heading-highlight">To Explore</span></h2>
+      </div>
+      <div class="heading-right">
+        <p class="para">
+Handpicked getaways across India's most breathtaking regions — pick a travel style below to see what's on offer, or browse everything at once.</p>
+      </div>
+    </div>
+
+    <div class="season-layout">
+
+      <!-- left: sticky season picker -->
+      <aside class="season-sidebar">
+        <ul class="season-list" id="seasonList">
+          <li class="season-item active" data-season="spring">
+            <span class="season-icon"><i class="bi bi-flower1"></i></span>
+            <span class="season-info">
+              <span class="season-name">Spring</span>
+              <span class="season-months">Mar – May</span>
+            </span>
+            <span class="season-arrow"><i class="bi bi-arrow-right"></i></span>
+          </li>
+          <li class="season-item" data-season="summer">
+            <span class="season-icon"><i class="bi bi-sun"></i></span>
+            <span class="season-info">
+              <span class="season-name">Summer</span>
+              <span class="season-months">Jun – Aug</span>
+            </span>
+            <span class="season-arrow"><i class="bi bi-arrow-right"></i></span>
+          </li>
+          <li class="season-item" data-season="autumn">
+            <span class="season-icon"><i class="bi bi-leaf"></i></span>
+            <span class="season-info">
+              <span class="season-name">Autumn</span>
+              <span class="season-months">Sep – Nov</span>
+            </span>
+            <span class="season-arrow"><i class="bi bi-arrow-right"></i></span>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- right: filtered package grid -->
+      <div class="season-grid" id="seasonGrid"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="hello" style="height: 100vh;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="./javascript/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1183 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+*,p,h1,h2,h3,h4,h5,h6,ul,ol,li{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#1ea0fe;
+    --dark:#222;
+
+    --heading:#1a1a1a;
+    --white:#ffffff;
+    --light-white: rgba(255, 255, 255, .85);
+
+    --para:#616161;
+    /* --para:#272727; */
+    --para2:#f6f6f6;
+
+    --card-radius:25px;
+}
+
+h1,h2,h3,h4,h5,h6{
+ /* font-family: 'Playfair Display', serif; */
+  font-family: "Space Grotesk", sans-serif;
+ color: var(--heading);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    /* font-family: "Inter", sans-serif; */
+    overflow-x:hidden;
+    background-color: #f0f4f5;
+      font-family: "DM Sans", sans-serif;
+    
+}
+
+/* ============ HEADER (both nav rows) ============ */
+/* transparent over the hero, with a soft light border like the
+   reference site — switches to a solid white bar with dark border
+   once the page is scrolled (see .site-header.scrolled below) */
+
+.site-header{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index: 1000;
+    background: transparent;
+    transition: box-shadow .35s ease, background .35s ease;
+    /* backdrop-filter: blur(6px); */
+}
+
+/* -------- top bar: social icons / logo / contact -------- */
+/* border-bottom here draws the line between the logo row and the
+   menu row, exactly like the reference. Colour switches in the
+   .scrolled state below so it stays visible once the bg turns white. */
+
+.top-bar{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.474);
+    transition: padding .35s ease, border-color .35s ease;
+}
+
+.top-bar-inner{
+    height: 60px;
+    display:grid;
+    grid-template-columns: 1fr auto 1fr; /* left / logo / right = fixed tracks, never resize */
+    padding: 0px 40px;
+    /* no align-items:center here on purpose — leaving items at the grid
+       default (stretch) makes each column's box fill the full row
+       height, which is what lets the left/right divider borders below
+       touch the top and bottom of the nav row, not just wrap the icons */
+}
+
+/* left slot holds BOTH social icons and the hamburger, stacked in the
+   same grid cell (hamburger is absolutely positioned on top of it) —
+   so swapping one for the other never changes this column's width,
+   which is exactly what keeps the logo from drifting. The divider
+   border lives here (not on .social-icons) so it stretches full height. */
+.header-left{
+    grid-column: 1;
+    position: relative;
+    justify-self: start;
+    display:flex;
+    align-items:center;
+    min-height: 24px;
+    padding-right: 24px;
+    border-right: 1px solid rgba(255, 255, 255, 0.474);
+    transition: border-color .35s ease;
+}
+
+.social-icons{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.social-icons a{
+    color: var(--white);
+    font-size: 15px;
+    opacity: .85;
+    transition: opacity .2s ease, color .2s ease;
+}
+
+.social-icons a:hover{
+    opacity: 1;
+    color: var(--primary);
+}
+
+.menu-toggle{
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--white);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .3s ease, color .35s ease;
+}
+
+.menu-txt{
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 400;
+    margin-right: 6px;
+     font-family: "DM Sans", sans-serif;
+    transition: color .35s ease;
+}
+.logo{
+    grid-column: 2;
+    font-family: 'Playfair Display', serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: .5px;
+    transition: font-size .35s ease;
+}
+   .logo img {
+        width: 160px;
+  
+    }
+
+
+.contact-wrap{
+    grid-column: 3;
+    justify-self: end;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;
+    padding-left: 24px;
+    border-left: 1px solid rgba(255, 255, 255, 0.474);
+    transition: border-color .35s ease;
+}
+
+.btn-contact{
+    display:inline-block;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    padding: 10px 19px;
+    border-radius: 999px;
+    transition: background .2s ease;
+}
+
+.btn-contact:hover{
+    background: var(--dark);
+    color: var(--white);
+}
+
+/* -------- second nav row: main menu -------- */
+/* border-bottom here draws the line between the menu row and the
+   hero below it, exactly like the reference */
+
+.main-nav{
+        border-bottom: 1px solid rgba(255, 255, 255, 0.474);
+    overflow: hidden;
+    max-height: 60px;
+    transition: max-height .35s ease, opacity .3s ease, border-color .35s ease;
+}
+
+.main-nav ul{
+    display:flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 14px 40px;
+}
+
+.main-nav a{
+    font-size: 12px;
+    /* font-weight: 500; */
+    color: var(--white);
+    position: relative;
+    padding-bottom: 4px;
+    transition: color .2s ease;
+}
+
+.main-nav a.active,
+.main-nav a:hover{
+    color: var(--primary);
+}
+
+/* ============ SCROLLED / COMPACT STATE ============ */
+/* left social icons hide -> hamburger shows in the SAME spot,
+   logo shrinks but stays centered, second nav collapses, and the
+   whole header switches from transparent-over-hero to a solid white
+   bar with dark text/borders. All the divider borders switch here too
+   from translucent-white (visible on the dark hero) to a light grey
+   (visible on the white scrolled bar) — this is what was missing
+   before and made the border look "off" while scrolling. */
+
+.site-header.scrolled{
+    background: var(--white);
+}
+
+.site-header.scrolled .top-bar{
+    border-bottom-color: rgba(0,0,0,.08);
+}
+
+.site-header.scrolled .header-left{
+    border-right-color: rgba(0,0,0,.08);
+}
+
+.site-header.scrolled .contact-wrap{
+    border-left-color: rgba(0,0,0,.08);
+}
+
+.site-header.scrolled .social-icons{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.site-header.scrolled .menu-toggle{
+    display:flex;
+    opacity: 1;
+    align-items:center;
+    color: var(--heading);
+}
+
+.site-header.scrolled .menu-txt{
+    color: var(--heading);
+}
+
+.site-header.scrolled .logo img{
+    filter: none;
+}
+
+.site-header.scrolled .main-nav{
+    max-height: 0;
+    opacity: 0;
+    border-color: transparent;
+}
+
+.site-header.scrolled .main-nav a{
+    color: var(--heading);
+}
+
+/* ============ HERO ============ */
+/* header + hero together fill exactly one viewport */
+
+.hero-section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow: hidden;
+    background: #111;
+}
+
+/* -------- image carousel that stands in for the old video: a stack of
+   full-bleed slides, one active at a time, cross-fading between each
+   other. Every slide also carries a slow continuous scale-up (Ken Burns
+   style) so even a still photo reads as moving footage, not a static
+   picture -------- */
+
+.hero-slides{
+    position:absolute;
+    inset:0;
+    z-index: 0;
+}
+
+.hero-slide{
+    position:absolute;
+    inset:0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: brightness(60%);
+    transform: scale(1);
+    transition: opacity 1.4s ease;
+}
+
+.hero-slide.active{
+    opacity: 1;
+    /* the zoom is a separate, longer-running animation from the
+       cross-fade transition above so it never restarts/snaps when the
+       fade kicks in - it just keeps drifting for as long as the slide
+       stays active */
+    animation: heroKenBurns 9s ease-in-out forwards;
+}
+
+@keyframes heroKenBurns{
+    from{ transform: scale(1); }
+    to{ transform: scale(1.15); }
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 0 24px;
+}
+
+.hero-title{
+    
+    font-size: clamp(40px, 8vw, 80px);
+ 
+    letter-spacing: -1px;
+    color: var(--white);
+    line-height: 1;
+}
+.hero-content .para{
+       max-width: 560px;
+    margin: 26px auto 0;
+  
+
+    color:var(--light-white);
+
+}
+
+
+/* permanent black overlay over the slides — not tied to scroll or any
+   JS. Now a top-to-bottom gradient (darkest right behind the header,
+   easing down) so the logo, menu text and icons in the nav bar stay
+   readable against any hero photo, while the rest of the hero keeps
+   its original light dim. */
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.707) 140px, rgba(0, 0, 0, .15) 260px, rgb(0 0 0 / 0%) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+/* ============ PACKAGES SECTION ============ */
+
+
+
+.heading-highlight{
+    color: var(--primary);
+}
+
+
+.packages-section{
+    padding: 100px 0 120px;
+   
+}
+
+/* -------- heading: label + title on the left, supporting copy on the
+   right, split by a thin rule — reads less templated than a stacked,
+   centered eyebrow/title/paragraph block -------- */
+
+.packages-heading{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #dfe3e4;
+}
+
+.heading-left::before{
+    content:"";
+    display:block;
+    width: 46px;
+    height: 2px;
+    background: var(--primary);
+    margin-bottom: 18px;
+}
+
+.packages-eyebrow{
+    display:block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.packages-heading h2{
+    font-size: clamp(30px,3.8vw,44px);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.heading-right{
+    position: relative;
+}
+
+.heading-right::before{
+    content:"";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #dfe3e4;
+}
+
+.para{
+    color: var(--para);
+    font-size: 14px;
+    line-height: 1.7;
+  
+}
+
+/* -------- toolbar: filter tabs on the left, carousel prev/next
+   arrows on the right, directly opposite each other -------- */
+
+.packages-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 44px;
+}
+
+/* -------- filter tabs: plain text, underline on hover/active —
+   no button chrome -------- */
+
+.packages-filter{
+    display:flex;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.filter-btn{
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--para);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    padding: 4px 0 4px;
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.filter-btn:hover{
+    color: var(--heading);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active{
+    color: var(--heading);
+    border-bottom-color: var(--primary);
+}
+
+/* -------- carousel prev/next arrows, injected here via owl's
+   navContainer option so they line up across from the filter tabs -------- */
+
+.packages-carousel-nav{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.packages-carousel-nav button.owl-prev,
+.packages-carousel-nav button.owl-next{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--white) !important;
+    border: 1px solid #e0e0e0 !important;
+    color: var(--heading) !important;
+    font-size: 16px !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+.packages-carousel-nav button.owl-prev:hover,
+.packages-carousel-nav button.owl-next:hover{
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--white) !important;
+    transform: translateY(-2px);
+}
+
+.packages-carousel-nav button.disabled{
+    opacity: .35;
+    pointer-events: none;
+}
+
+@media (max-width: 576px){
+    .packages-carousel-nav{ order: 3; width: 100%; justify-content: flex-start; }
+}
+
+/* -------- view all: quiet outline action, fills solid on hover.
+   now lives directly under the carousel, right-aligned, standing in
+   for the old prev/next arrows -------- */
+
+.packages-bottom-action{
+    display:flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+/* -------- carousel + cards -------- */
+
+.packages-carousel-wrap{
+    position: relative;
+}
+
+.package-card{
+    background: var(--white);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 12px 34px rgba(20,30,40,.08);
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* .package-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(20,30,40,.14);
+} */
+
+.package-img{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.package-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.package-card:hover .package-img img{
+    transform: scale(1.06);
+}
+
+.package-body{
+    padding:15px 18px 18px;
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.package-title{
+    font-size: 17px;
+ /* font-weight: 600; */
+    margin-bottom: 10px;
+}
+
+/* -------- duration badge: replaces the old location line, pill
+   shape with a soft fill so it reads as a quick-glance trip stat -------- */
+
+.package-duration{
+    display:inline-flex;
+    /* align-items:center; */
+    gap: 6px;
+    background: var(--para2);
+    color: var(--heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #e6eaea;
+    margin-bottom: 10px;
+        width: fit-content;  
+}
+
+
+
+.package-duration i{
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.package-desc p{
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.package-footer{
+    margin-top: auto;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 7px;
+    border-top: 1px solid #eee;
+}
+
+.price-label{
+    display:block;
+    font-size: 11px;
+    color: var(--para);
+    margin-bottom: 2px;
+}
+
+.price-value{
+    display:block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+/* -------- enquire button: same pill/circle family as the rest of the
+   page, just wide enough now to carry a text label alongside the icon -------- */
+
+.package-cta{
+    position: relative;
+    height: 37px;
+    padding: 4px 6px 4px 16px;
+    border-radius: 999px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: 1px solid var(--primary);
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    cursor: pointer;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.package-cta::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: 0;
+    background-color: var(--dark);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.package-cta:hover::before{
+    scale: 3;
+}
+
+.package-cta:hover{
+    border-color: var(--dark);
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+}
+
+.package-cta .btn-text{
+    position: relative;
+    z-index: 1;
+}
+
+.package-cta-arrow{
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--primary);
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1), color 0.3s ease;
+}
+
+.package-cta:hover .package-cta-arrow{
+    color: var(--dark);
+    transform: translateX(2px);
+}
+
+/* owl dots restyled to match palette (prev/next arrows are rendered
+   separately, see .packages-carousel-nav above) */
+
+.packages-carousel .owl-dots{
+    display:flex;
+    justify-content:center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.packages-carousel .owl-dot span{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d7d7d7 !important;
+    margin: 0 !important;
+    transition: background .2s ease, width .2s ease;
+}
+
+.packages-carousel .owl-dot.active span{
+    background: var(--primary) !important;
+    width: 22px;
+    border-radius: 5px;
+}
+
+/* ============ ABOUT SECTION ============ */
+
+.about-section{
+    padding: 0 0 120px;
+}
+
+/* -------- stats strip: 4 quick-glance numbers above the main
+   text/media block, same layout family as the reference. Shown
+   immediately (no scroll-triggered reveal) — only a hover lift on
+   each card so the strip still feels alive without depending on
+   scroll position. -------- */
+
+.about-stats{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 3;
+    margin-bottom: -30px; /* pulls the cards down so their bottom half sits on the image below */
+}
+
+.stat-card{
+    background: var(--white);
+    border-radius:10px;
+    padding: 24px 22px;
+    box-shadow: 0 12px 34px rgba(20,30,40,.06);
+    transition: transform .3s cubic-bezier(.22,.8,.32,1), box-shadow .3s ease;
+}
+
+.stat-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(20,30,40,.14);
+}
+
+.stat-card h3{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.stat-card span{
+    display:block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+   
+  
+    margin-bottom: 6px;
+}
+
+
+
+@media (max-width: 768px){
+    .about-stats{ grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 480px){
+    .about-stats{ grid-template-columns: 1fr; }
+}
+
+/* -------- media block: one full background photo with the text sitting
+   on top of it (left-aligned), matching the reference — no side image,
+   no separate video column. Shown fully in place (no scroll-triggered
+   fade) and instead comes alive on hover: the photo slowly zooms in
+   and the whole block lifts with a soft shadow, so the section still
+   feels responsive without waiting on scroll position. -------- */
+
+.about-media{
+    position: relative;
+    overflow: hidden;
+    min-height: 570px;
+    display:flex;
+    align-items:center;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    transition: box-shadow .5s ease;
+}
+
+
+
+.about-bg{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transform: scale(1);
+    transition: transform 1.8s cubic-bezier(.22,.8,.32,1);
+}
+
+.about-media:hover .about-bg{
+    transform: scale(1.08);
+}
+
+/* fades from dark on the left (where the text sits) to clear on the
+   right, so the photo stays visible while the text stays readable.
+   Pushed further left / made stronger so the text block always has a
+   solid dark backdrop, whatever the photo underneath looks like. */
+
+.about-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(95deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.6) 30%, rgba(0,0,0,.25) 58%, rgba(0,0,0,.04) 82%);
+    z-index: 1;
+    transition: background .5s ease;
+}
+
+.about-text-inner{
+    position: relative;
+    z-index: 2;
+    /* padding: 110px 60px 60px; */
+    max-width: 520px;
+    transition: transform .5s ease;
+}
+
+
+.about-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--light-white);
+    margin-bottom: 20px;
+}
+
+.about-eyebrow i{
+    color: var(--primary);
+    font-size: 15px;
+    display: inline-block;
+    transition: transform .5s ease;
+}
+
+
+
+.about-title{
+    font-size: clamp(28px,3.4vw,38px);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 22px;
+}
+
+.about-text-inner .para{
+  
+    color: var(--light-white);
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px){
+    .about-stats{ margin-bottom: -40px; }
+    .about-media{ min-height: 480px; }
+    .about-text-inner{ padding: 70px 28px 40px; max-width: 100%; }
+}
+
+@media (max-width: 576px){
+    .about-section{ padding-bottom: 90px; }
+    .about-stats{ grid-template-columns: 1fr; margin-bottom: -20px; }
+    .about-media{ min-height: 420px; }
+    .about-text-inner{ padding: 50px 22px 32px; }
+}
+
+@media (max-width: 768px){
+    .packages-heading{
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .heading-right::before{ display:none; }
+    .heading-right p{ padding-left: 0; }
+}
+
+@media (max-width: 576px){
+    .packages-section{ padding: 70px 0 90px; }
+    .packages-bottom-action{ justify-content: flex-start; }
+    .package-body{ padding: 18px 18px 22px; }
+}
+
+/* ============ FEATURED SECTION ============ */
+/* Same card language as the packages section (white surface, rounded
+   corners, same radius/shadow tokens) but laid out horizontally —
+   image on the left, copy on the right — and shown two-per-row in a
+   plain CSS grid (no carousel) so every package is reachable by
+   scrolling, wrapping to as many rows as it needs. Shown fully in
+   place (no scroll-triggered reveal), with a hover lift for feedback. */
+
+.featured-section{
+    padding: 100px 0 120px;
+}
+
+.featured-grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 40px;
+}
+
+.featured-card{
+    background: var(--white);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 12px 34px rgba(20,30,40,.08);
+    display:flex;
+    align-items: stretch;
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.featured-card:hover{
+    box-shadow: 0 18px 40px rgba(20,30,40,.14);
+    transform: translateY(-4px);
+}
+
+.featured-img{
+    position: relative;
+    width: 42%;
+    flex-shrink: 0;
+    align-self: stretch;
+    overflow: hidden;
+}
+
+/* absolutely positioned so the image itself never dictates the card's
+   height (an in-flow img would size to its own natural aspect ratio
+   first, then get stretched, which is what was causing the height to
+   run past or fall short of the text side) — it just fills whatever
+   height the text side has already established */
+.featured-img img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.featured-card:hover .featured-img img{
+    transform: scale(1.06);
+}
+
+.featured-body{
+    flex: 1;
+    padding: 24px 24px;
+    display:flex;
+    flex-direction: column;
+}
+
+.featured-title{
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.featured-duration{
+    display:inline-flex;
+    gap: 6px;
+    background: var(--para2);
+    color: var(--heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #e6eaea;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.featured-duration i{
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.featured-desc p{
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.featured-footer{
+    margin-top: auto;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 7px;
+    border-top: 1px solid #eee;
+}
+
+
+
+@media (max-width: 860px){
+    .featured-card{ flex-direction: column; }
+    .featured-img{ width: 100%; aspect-ratio: 16/10; }
+}
+
+@media (max-width: 700px){
+    .featured-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============ CHOOSE YOUR SEASON SECTION ============ */
+/* Heading reuses .packages-heading (same eyebrow/title/paragraph split
+   as every other section). Cards reuse .package-card and friends
+   exactly as-is (see the packages carousel above) — no new card design,
+   just plain classes copied over into a CSS grid instead of an owl
+   carousel. Only genuinely new pieces here are the sticky season tab
+   list on the left and the grid container on the right. */
+
+.season-section{
+    padding: 100px 0 120px;
+    background: #eaf6ff 
+}
+
+.season-layout{
+    display:grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* -------- sticky tab list -------- */
+
+.season-sidebar{
+    position: sticky;
+    top: 130px; /* clears the fixed header */
+    background: var(--white);
+    border-radius: var(--card-radius);
+    padding: 10px 24px;
+    box-shadow: 0 12px 34px rgba(20,30,40,.08);
+}
+
+.season-list{
+    display:flex;
+    flex-direction: column;
+}
+
+.season-item{
+    position: relative;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    padding: 18px 6px;
+    border-top: 1px solid #eee;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color .25s ease, background .25s ease;
+}
+
+.season-list li:first-child{
+    border-top: none;
+}
+
+.season-item:hover{
+    background: rgba(30,160,254,.05);
+}
+
+.season-item.active{
+    border-left-color: var(--primary);
+    background: rgba(30,160,254,.06);
+}
+
+.season-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--para2);
+    color: var(--para);
+    font-size: 17px;
+    transition: background .25s ease, color .25s ease;
+}
+
+.season-item.active .season-icon{
+    background: rgba(30,160,254,.15);
+    color: var(--primary);
+}
+
+.season-info{
+    display:flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.season-name{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    color: var(--para);
+    transition: color .25s ease;
+}
+
+.season-item.active .season-name{
+    color: var(--heading);
+}
+
+.season-months{
+    font-size: 11px;
+    color: var(--para);
+}
+
+.season-arrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--primary);
+    font-size: 15px;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.season-item.active .season-arrow,
+.season-item:hover .season-arrow{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* -------- right: plain grid wrapper, cards inside are plain
+   .package-card markup copied from the packages section -------- */
+
+.season-grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 40px;
+    align-content: start;
+}
+
+@media (max-width: 992px){
+    .season-layout{ grid-template-columns: 1fr; }
+    .season-sidebar{ position: static; margin-bottom: 44px; }
+}
+
+@media (max-width: 700px){
+    .season-grid{ grid-template-columns: 1fr; }
+}

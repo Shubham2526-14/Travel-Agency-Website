@@ -1,0 +1,23 @@
+/* @media (max-width: 768px){
+    .top-bar-inner{
+        padding: 14px 20px;
+    }
+    .main-nav ul{
+        gap: 18px;
+        padding: 14px 20px;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .social-icons{
+        display:none;
+    }
+    .menu-toggle{
+        display:flex;
+        position: static;
+        transform: none;
+        opacity: 1;
+    }
+    .logo span{
+        font-size: 20px;
+    }
+} */
