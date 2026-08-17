@@ -1,4 +1,12 @@
-/* @media (max-width: 768px){
+/* ======================================================================
+   RESPONSIVE / MEDIA QUERIES
+   All @media rules for the site, pulled out of style.css so the base
+   styles stay easy to scan. Grouped by breakpoint, in the same order
+   the sections appear on the page.
+   ====================================================================== */
+
+/* ============ HEADER ============ */
+@media (max-width: 768px){
     .top-bar-inner{
         padding: 14px 20px;
     }
@@ -17,7 +25,146 @@
         transform: none;
         opacity: 1;
     }
-    .logo span{
-        font-size: 20px;
+}
+
+/* ============ ABOUT SECTION ============ */
+@media (max-width: 768px){
+    .about-stats{ grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 480px){
+    .about-stats{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px){
+    .about-stats{ margin-bottom: -40px; }
+    .about-media{ min-height: 480px; }
+    .about-text-inner{ padding: 70px 28px 40px; max-width: 100%; }
+}
+
+@media (max-width: 576px){
+    .about-section{ padding-bottom: 90px; }
+    .about-stats{ grid-template-columns: 1fr; margin-bottom: -20px; }
+    .about-media{ min-height: 420px; }
+    .about-text-inner{ padding: 50px 22px 32px; }
+}
+
+/* ============ PACKAGES SECTION ============ */
+@media (max-width: 576px){
+    .packages-carousel-nav{ order: 3; width: 100%; justify-content: flex-start; }
+}
+
+@media (max-width: 768px){
+    .packages-heading{
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
-} */
+    .heading-right::before{ display:none; }
+    .heading-right p{ padding-left: 0; }
+}
+
+@media (max-width: 576px){
+    .packages-section{ padding: 70px 0 90px; }
+    .packages-bottom-action{ justify-content: flex-start; }
+    .package-body{ padding: 18px 18px 22px; }
+}
+
+/* ============ FEATURED SECTION ============ */
+@media (max-width: 860px){
+    .featured-card{ flex-direction: column; }
+    .featured-img{ width: 100%; aspect-ratio: 16/10; }
+}
+
+@media (max-width: 700px){
+    .featured-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============ CHOOSE YOUR SEASON SECTION ============ */
+@media (max-width: 992px){
+    .season-layout{ grid-template-columns: 1fr; }
+    .season-sidebar{ position: static; margin-bottom: 44px; }
+}
+
+@media (max-width: 700px){
+    .season-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============ GALLERY SECTION ============ */
+@media (max-width: 992px){
+    .gallery-item.g-edge{ width: 100%; height: 400px; }
+    .gallery-item.g-large{ width: 320px; height: 400px; }
+    .gallery-item.g-stack-top{ width: 210px; height: 150px; }
+    .gallery-item.g-stack-bottom{ width: 210px; height: 235px; }
+}
+
+@media (max-width: 600px){
+    .gallery-item.g-edge{ width: 100%; height: 300px; }
+    .gallery-item.g-large{ width: 250px; height: 300px; }
+    .gallery-item.g-stack-top{ width: 165px; height: 115px; }
+    .gallery-item.g-stack-bottom{ width: 165px; height: 180px; }
+    .gallery-col.gallery-stack{ gap: 14px; }
+    .gallery-track{ gap: 16px; }
+}
+
+/* ============ GALLERY LIGHTBOX ============ */
+@media (max-width: 600px){
+    .lightbox-nav{ width: 42px; height: 42px; font-size: 16px; }
+    .lightbox-prev{ left: 10px; }
+    .lightbox-next{ right: 10px; }
+    .lightbox-close{ top: 14px; right: 14px; width: 38px; height: 38px; }
+}
+
+/* ============ FAQ SECTION ============ */
+@media (max-width: 900px){
+    .faq-layout{ grid-template-columns: 1fr; }
+    .faq-sidebar{ position: static; margin-bottom: 40px; }
+}
+
+/* ============ FOOTER ============ */
+@media (max-width: 900px){
+    .footer-top{ grid-template-columns: 1fr; gap: 40px; }
+    .footer-links-row{ grid-template-columns: 1fr 1fr; }
+    .footer-contact{ grid-column: 1 / -1; }
+}
+
+@media (max-width: 576px){
+    .footer-panel{ padding: 50px 0 36px; }
+    .footer-links-row{ grid-template-columns: 1fr; gap: 30px; padding-bottom: 50px; }
+    .footer-form-row{ grid-template-columns: 1fr; }
+    .footer-bottom-inner{ flex-direction: column; align-items: flex-start; }
+    .footer-logo-img{ width: 220px; max-width: 80%; }
+}
+
+/* ============ MEGA MENU ============ */
+@media (max-width: 1200px){
+    .mega-menu-inner{ gap: 60px; padding-right: 40px; }
+}
+
+@media (max-width: 992px){
+    .mega-menu-inner{ gap: 40px; }
+    .mega-menu-content{ gap: 34px; }
+    .mega-menu-info{ gap: 26px; }
+}
+
+@media (max-width: 900px){
+    .mega-menu-inner{ grid-template-columns: 1fr 1fr; }
+    .mega-menu-content{ gap: 30px; }
+    .mega-menu-info{ display: none; }
+}
+
+@media (max-width: 700px){
+    .mega-menu{ height: 100vh; border-radius: 0; }
+    .mega-menu-inner{ grid-template-columns: 1fr; padding: 110px 22px 30px; overflow-y: auto; }
+    .mega-menu-left{ display: none; }
+    .mega-menu-list{ padding-left: 26px; }
+    .mega-menu-list a{ font-size: clamp(22px, 6vw, 30px); }
+}
+
+/* short viewports (small laptops, landscape phones) — let the content
+   scroll internally instead of clipping the last link or the photo */
+@media (max-height: 700px){
+    .mega-menu-inner{ padding-top: 0; overflow-y: auto; }
+    .mega-menu-list{ gap: 2px; }
+    .mega-menu-list a{ font-size: clamp(20px, 3vw, 32px); line-height: 1.2; }
+    .mega-menu-info{ gap: 20px; }
+}

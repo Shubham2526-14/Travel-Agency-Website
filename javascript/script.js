@@ -1,7 +1,9 @@
+// NAVBAR SCROLL 
+
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.getElementById('siteHeader');
 
-  const SCROLL_THRESHOLD = 350; // px scrolled before header switches to compact mode
+  const SCROLL_THRESHOLD = 70;
 
   function updateHeaderState() {
     if (window.scrollY > SCROLL_THRESHOLD) {
@@ -14,45 +16,32 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', updateHeaderState);
   updateHeaderState();
 
-
-  /* ============ HERO: image carousel standing in for the video ============ */
-  /* Cross-fades between slides on a timer; each slide also carries its
-     own slow zoom (see .hero-slide.active in style.css) which is
-     restarted every time a slide becomes active, so the "footage" is
-     always drifting, never frozen. */
-
   const heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
-  const HERO_INTERVAL = 6000; // ms between slide changes
+  const HERO_INTERVAL = 6000;
 
   if (heroSlides.length) {
     let heroIndex = 0;
 
     setInterval(function () {
-      heroSlides[heroIndex].classList.remove('active');
+      const current = heroSlides[heroIndex];
+
+      const frozenTransform = getComputedStyle(current).transform;
+      current.style.animation = 'none';
+      current.style.transform = frozenTransform;
+      current.classList.remove('active');
+
       heroIndex = (heroIndex + 1) % heroSlides.length;
-      // force the zoom keyframe animation to restart on the new active
-      // slide instead of silently no-op'ing (re-adding the same class
-      // wouldn't retrigger the animation)
       const next = heroSlides[heroIndex];
+
       next.style.animation = 'none';
-      void next.offsetWidth; // reflow, resets the animation
+      next.style.transform = 'scale(1)';
+      void next.offsetWidth;
       next.style.animation = '';
+      next.style.transform = '';
       next.classList.add('active');
     }, HERO_INTERVAL);
   }
 
-  /* NOTE: the old scroll-triggered "fade/rise into view" animation for
-     .about-stats / .about-media / .featured-grid has been removed —
-     those sections are now fully visible immediately, no IntersectionObserver.
-     The about-section instead gets its motion from a hover animation
-     (see .about-media:hover rules in style.css). */
-
-
-  /* ============ PACKAGES: data, render, filter, carousel ============ */
-
-  // Replace the "img" path for each package with your own photo once you
-  // drop it into your /images/ folder — these are just placeholders.
-  // "duration" replaces the old location line on the card (e.g. "12 Days 8 Nights").
   const packagesData = {
     bike: [
       { title: "Motorbike Tour Ladakh – Khardung La & Pangong",            duration: "7 Days 6 Nights", img: "./images/img11.jpg", desc: "Ride through some of the world's highest motorable passes on a Royal Enfield, camping under starlit skies.", price: "31,000" },
@@ -83,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="package-body">
         <h3 class="package-title">${pkg.title}</h3>
         <div class="package-desc">
-        
+
         <p class="para">${pkg.desc}</p>
         </div>
         <div class="package-duration"><i class="bi bi-calendar3"></i> ${pkg.duration}</div>
@@ -110,19 +99,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const $carousel = jQuery(carouselEl);
 
-    // tear down the previous instance first so owl releases its markup,
-    // then drop in the new cards for the selected travel style
     if (owl) {
       $carousel.trigger('destroy.owl.carousel');
-      jQuery('#packagesNav').empty(); // clear old arrows before owl re-injects new ones
+      jQuery('#packagesNav').empty();
     }
     carouselEl.innerHTML = list.map(cardHTML).join('');
 
     $carousel.owlCarousel({
       loop: false,
-      margin: 40, // gap between cards — owl handles this itself, no CSS margin needed
+      margin: 40,
       nav: true,
-      navContainer: '#packagesNav', // renders the arrows opposite the filter tabs instead of inside the carousel
+      navContainer: '#packagesNav',
       navText: [
         "<i class='bi bi-arrow-left'></i>",
         "<i class='bi bi-arrow-right'></i>"
@@ -153,12 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (carouselEl) {
     renderRegion('bike');
   }
-
-
-  /* ============ FEATURED: data + render (plain grid, no carousel) ============ */
-  /* Same shape as packagesData, just flattened into one list — every
-     package shows up, two per row, wrapping to as many rows as needed
-     (see .featured-grid in style.css). */
 
   const featuredData = [
     { title: "Adventurous Ladakh Expedition 2026 with Umling La Pass", duration: "12 Days 8 Nights", img: "./images/img5.jpg", desc: "High-altitude lake camping under starlit skies, with panoramic views of Umling La, one of the world's highest motorable passes.", price: "18,999" },
@@ -196,8 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <span class="btn-text">Book Now</span>
   <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
 </button>
-      
-            
+
           </div>
         </div>
       </div>`;
@@ -206,14 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (featuredGrid) {
     featuredGrid.innerHTML = featuredData.map(featuredCardHTML).join('');
   }
-
-
-  /* ============ CHOOSE YOUR SEASON: data, render, filter ============ */
-  /* Same idea as the packages filter above (data object keyed by
-     tab -> click swaps the rendered list). Cards are the exact same
-     .package-card markup used in the packages section — just dropped
-     into a plain CSS grid instead of an owl carousel, no new card
-     design. */
 
   const seasonsData = {
     spring: [
@@ -230,17 +202,13 @@ document.addEventListener('DOMContentLoaded', function () {
     ],
     autumn: [
       { title: "Chamser Kangri Expedition 2026", duration: "11 Days | 4 - 16 Persons", img: "./images/img8.jpg", desc: "Crisp autumn air and long visibility make this a favourite post-monsoon climb.", price: "1,02,000" },
-      { title: "Ladakh Ultimate Riding Expedition", duration: "11 Days | 6 - 16 Persons", img: "./images/img9.jpg", desc: "Quieter roads and golden landscapes as the crowds thin out after summer.", price: "1,91,000" },
-  
-
+      { title: "Ladakh Ultimate Riding Expedition", duration: "11 Days | 6 - 16 Persons", img: "./images/img9.jpg", desc: "Quieter roads and golden landscapes as the crowds thin out after summer.", price: "1,91,000" }
     ]
   };
 
   const seasonGrid = document.getElementById('seasonGrid');
   const seasonItems = document.querySelectorAll('.season-item');
 
-  // identical markup to cardHTML() in the packages section above —
-  // same classes, just reused here instead of duplicated as a new design
   function seasonCardHTML(pkg) {
     return `
       <div class="package-card">
@@ -283,6 +251,200 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   if (seasonGrid) {
-    renderSeason('spring'); // Spring is the default active tab, matches the sidebar's initial state
+    renderSeason('spring');
+  }
+
+  const menuToggle = document.getElementById('menuToggle');
+  const megaMenu = document.getElementById('megaMenu');
+
+ function setMenuOpen(isOpen) {
+  if (isOpen) {
+    megaMenu.classList.add('open');
+    menuToggle.classList.add('open');
+    document.body.classList.add('menu-open');
+  } else {
+    megaMenu.classList.remove('open');
+    menuToggle.classList.remove('open');
+    setTimeout(function () {
+      document.body.classList.remove('menu-open');
+    }, 350);
+  }
+}
+
+  if (menuToggle && megaMenu) {
+    menuToggle.addEventListener('click', function () {
+      setMenuOpen(!megaMenu.classList.contains('open'));
+    });
+  }
+
+  const megaMenuLinks = document.querySelectorAll('.mega-menu-list a');
+  const megaMenuImg = document.getElementById('megaMenuImg');
+
+  megaMenuLinks.forEach(function (link) {
+    link.addEventListener('mouseenter', function () {
+      const newSrc = link.dataset.img;
+      if (!newSrc) return;
+
+      megaMenuLinks.forEach(function (l) { l.classList.remove('active'); });
+      link.classList.add('active');
+
+      if (megaMenuImg.getAttribute('src') === newSrc) return;
+
+      megaMenuImg.classList.remove('show');
+      setTimeout(function () {
+        megaMenuImg.src = newSrc;
+        megaMenuImg.classList.add('show');
+      }, 200);
+    });
+
+    link.addEventListener('click', function () {
+      if (menuToggle && megaMenu) {
+        setMenuOpen(false);
+      }
+    });
+  });
+});
+
+const galleryViewport = document.getElementById('galleryViewport');
+const galleryTrack = document.getElementById('galleryTrack');
+
+if (galleryViewport && galleryTrack) {
+  let maxScroll = 0;
+  let restX = 0;
+  let targetX = 0;
+  let currentX = 0;
+
+  function applyTransform(x) {
+    galleryTrack.style.transform = `translate3d(${Math.round(x * 100) / 100}px, 0, 0)`;
+  }
+
+  function recalcGallery() {
+    maxScroll = Math.max(0, galleryTrack.scrollWidth - galleryViewport.clientWidth);
+    restX = -maxScroll / 2;
+    targetX = restX;
+    currentX = restX;
+    applyTransform(currentX);
+  }
+
+  recalcGallery();
+  window.addEventListener('resize', recalcGallery);
+  window.addEventListener('load', recalcGallery);
+
+  galleryViewport.addEventListener('mousemove', function (e) {
+    const rect = galleryViewport.getBoundingClientRect();
+    let percent = (e.clientX - rect.left) / rect.width;
+    percent = Math.min(1, Math.max(0, percent));
+    targetX = -percent * maxScroll;
+  });
+
+  galleryViewport.addEventListener('mouseleave', function () {
+    targetX = restX;
+  });
+
+  function animateGallery() {
+    currentX += (targetX - currentX) * 0.08;
+    if (Math.abs(targetX - currentX) < 0.05) currentX = targetX;
+    applyTransform(currentX);
+    requestAnimationFrame(animateGallery);
+  }
+
+  animateGallery();
+}
+
+const galleryItems = Array.from(galleryTrack.querySelectorAll('.gallery-item img'));
+const lightbox = document.getElementById('galleryLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+
+let currentIndex = 0;
+
+function showLightboxImage(index) {
+  currentIndex = (index + galleryItems.length) % galleryItems.length;
+  const target = galleryItems[currentIndex];
+  lightboxImg.src = target.src;
+  lightboxImg.alt = target.alt;
+  lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+}
+
+function openLightbox(index) {
+  showLightboxImage(index);
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+galleryItems.forEach(function (img, index) {
+  img.addEventListener('click', function () {
+    openLightbox(index);
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', function () { showLightboxImage(currentIndex - 1); });
+lightboxNext.addEventListener('click', function () { showLightboxImage(currentIndex + 1); });
+
+lightbox.addEventListener('click', function (e) {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') showLightboxImage(currentIndex + 1);
+  if (e.key === 'ArrowLeft') showLightboxImage(currentIndex - 1);
+});
+
+document.querySelectorAll('.gallery-item').forEach(function (item) {
+  const icon = document.createElement('span');
+  icon.className = 'gallery-zoom-icon';
+  icon.innerHTML = '<i class="bi bi-zoom-in"></i>';
+  item.appendChild(icon);
+});
+
+const faqItems = document.querySelectorAll('#faqList .faq-item');
+
+faqItems.forEach(function (item) {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  if (item.classList.contains('active')) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+
+  question.addEventListener('click', function () {
+    const isActive = item.classList.contains('active');
+
+    faqItems.forEach(function (other) {
+      other.classList.remove('active');
+      other.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isActive) {
+      item.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+window.addEventListener('resize', function () {
+  const openItem = document.querySelector('#faqList .faq-item.active');
+  if (openItem) {
+    const openAnswer = openItem.querySelector('.faq-answer');
+    openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
   }
 });
+
+const footerForm = document.getElementById('footerForm');
+if (footerForm) {
+  footerForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    footerForm.reset();
+  });
+}

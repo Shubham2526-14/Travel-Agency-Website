@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="./style/media.css">
 </head>
 
 <body>
@@ -19,38 +20,42 @@
 <header class="site-header" id="siteHeader">
 
   <!-- Top bar: social icons left, contact button right -->
-  <div class="top-bar" id="topBar">
+  <div class="top-bar">
     <div class="top-bar-inner">
 
       <!-- left slot: social icons AND hamburger live here, stacked in the
            same spot, so this column's position/width never shifts -->
-      <div class="header-left" id="headerLeft">
-        <div class="social-icons" id="socialIcons">
+      <div class="header-left">
+        <div class="social-icons">
           <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
           <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
         </div>
-         
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-            <h4 class ="menu-txt">Menu</h4>
-          <i class="bi bi-list"></i>
-        </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+  <span class="menu-lines">
+    <span></span>
+    <span></span>
+  </span>
+</button>
       </div>
 
-      <a href="#" class="logo" id="logo">
+      <a href="#" class="logo">
        <img src="images/logo/Full Logo Horizontal PNG.png" alt="Logo">
       </a>
 
       <div class="contact-wrap">
-        <a href="#contact" class="btn-contact">Contact Us</a>
-      </div>
+  <a href="#contact" class="btn-contact">
+    <span class="btn-text">Contact Us</span>
+  </a>
+</div>
 
     </div>
   </div>
 
   <!-- Second nav: main menu -->
-  <nav class="main-nav" id="mainNav">
+  <nav class="main-nav">
     <ul>
       <li><a href="#" class="active">Home</a></li>
       <li><a href="#">About Me</a></li>
@@ -64,31 +69,62 @@
 
 </header>
 
+<!-- ============ FULLSCREEN MENU OVERLAY ============ -->
+<div class="mega-menu" id="megaMenu">
+  <div class="mega-menu-inner">
+    <div class="mega-menu-left">
+      <img src="./images/img6.jpg" alt="" id="megaMenuImg" class="mega-menu-img show">
+    </div>
+    <div class="mega-menu-content">
+      <div class="mega-menu-right">
+        <ul class="mega-menu-list">
+          <li><a href="#" data-img="./images/img6.jpg" class="active">Home</a></li>
+          <li><a href="#" data-img="./images/img4.jpg">About Me</a></li>
+          <li><a href="#" data-img="./images/img1.jpg">Cities</a></li>
+          <li><a href="#" data-img="./images/img9.jpg">Planning</a></li>
+          <li><a href="#" data-img="./images/img5.jpg">Stories</a></li>
+          <li><a href="#" data-img="./images/img7.jpg">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-menu-info">
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Social</span>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Find Us</span>
+          <p class="mega-info-line">123, Mall Road, Civil Lines</p>
+          <p class="mega-info-line">Ludhiana, Punjab, India – 141001</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE WRAP ============ -->
+<div class="page-wrap">
+
 <!-- Hero image carousel section -->
-<section class="hero-section" id="heroSection">
+<section class="hero-section">
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" style="background-image:url('./images/img6.jpg')"></div>
     <div class="hero-slide" style="background-image:url('./images/img4.jpg')"></div>
     <div class="hero-slide" style="background-image:url('./images/img1.jpg')"></div>
     <div class="hero-slide" style="background-image:url('./images/img8.jpg')"></div>
   </div>
-  <!-- permanent black-transparent overlay, sits on top of the slides at
-       all times — not tied to scroll or any JS in any way. Now carries a
-       top-to-bottom gradient so the header (logo/nav) reads clearly
-       against any hero photo -->
   <div class="hero-overlay"></div>
 
     <div class="hero-content">
-    <!-- <span class="hero-kicker">Welcome to your</span> -->
     <h1 class="hero-title">WanderLand</h1>
     <p class="para ">We craft journeys across every corner of the country.<br>Discover the beauty of your homeland with WanderIndia.</p>
-
-   
   </div>
 </section>
 
 <!-- ============ PACKAGES SECTION ============ -->
-<section class="packages-section" id="packagesSection">
+<section class="packages-section">
   <div class="container ">
 
     <div class="packages-heading">
@@ -102,97 +138,19 @@
     </div>
 
     <div class="packages-toolbar">
-      <div class="packages-filter" id="packagesFilter" role="tablist">
+      <div class="packages-filter" role="tablist">
         <button class="filter-btn active" data-region="bike">Bike Packages</button>
         <button class="filter-btn" data-region="car">Car Packages</button>
       </div>
 
-      <!-- carousel prev/next arrows get injected here by owl (navContainer
-           option in script.js) so they sit directly opposite the region
-           tabs instead of floating below the cards -->
       <div class="packages-carousel-nav" id="packagesNav"></div>
     </div>
 
     <div class="packages-carousel-wrap">
       <div class="owl-carousel packages-carousel" id="packagesCarousel"></div>
     </div>
-<style>
-  /* From Uiverse.io by gharsh11032000 */ 
-/* From Uiverse.io by gharsh11032000 (adapted) */
-.long-btn {
-    cursor: pointer;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    height: 41px;
-    padding: 4px 6px 4px 15px;
-    font-size: 14px;
-    color: var(--white);
-    border: 1px solid var(--primary);
-    border-radius: 999px;
-    background-color: var(--primary);
-    font-weight: 600;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-}
 
-.long-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 62px;
-    height: 62px;
-    border-radius: inherit;
-    scale: 0;
-    z-index: 0;
-    background-color: var(--heading);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.long-btn:hover::before {
-    scale: 3;
-}
-
-.long-btn:hover {
-    color: var(--white);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    border-color: var(--heading);
-}
-
-/* Text */
-.long-btn .btn-text {
-    position: relative;
-    z-index: 1;
-    color: var(--white);
-    transition: color 0.3s ease;
-}
-
-/* Arrow */
-.btn-arrow {
-    position: relative;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--white);
-    color: var(--primary);
-    font-size: 15px;
-    flex-shrink: 0;
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1),
-                color 0.3s ease;
-}
-
-.long-btn:hover .btn-arrow {
-    color: var(--heading);
-}
-</style>
-    <!-- quick jump to the full list, separate from the region tabs above -->
-  <div class="packages-bottom-action">
+    <div class="packages-bottom-action">
     <button class="long-btn">
         <span class="btn-text">View All Packages</span>
         <span class="btn-arrow">
@@ -205,10 +163,9 @@
 </section>
 
 <!-- ============ ABOUT SECTION ============ -->
-<section class="about-section" id="aboutSection">
+<section class="about-section">
   <div class="container">
 
-    <!-- stats strip, same numbers-first layout as the reference -->
     <div class="about-stats">
       <div class="stat-card">
         <h3>21,24,000</h3>
@@ -233,23 +190,14 @@
     </div>
       </div>
 
-    <!-- text-on-image block, mirrors the "Get to Know" layout from the reference:
-         one full background photo, text sitting on top of it, no side image.
-         Now has a stronger left-to-right gradient (so the left-aligned text
-         always reads clearly) plus a hover animation on the whole block. -->
     <div class="about-media">
-      <img class="about-bg" src="./images/img8.jpg" alt="Punjab and the Himalayas" onerror="this.src='https://placehold.co/1400x700/1ea0fe/ffffff?text=Add+Background+Photo'">
+      <img class="about-bg" src="./images/img1.jpg" alt="Punjab and the Himalayas" onerror="this.src='https://placehold.co/1400x700/1ea0fe/ffffff?text=Add+Background+Photo'">
       <div class="about-overlay"></div>
 <div class="container">
       <div class="about-text-inner">
         <span class="about-eyebrow"><i class="bi bi-compass"></i> Get to Know</span>
         <h2 class="about-title">Punjab &amp; The Himalayas</h2>
         <p class="para">Golden mustard fields, turquoise high-altitude lakes and centuries-old forts — one of the most diverse stretches of road in the country, and a valley unlike anywhere else, are waiting for you.</p>
-
-        <!-- <div class="about-links">
-          <a href="#">Attractions <i class="bi bi-arrow-right"></i></a>
-          <a href="#">Similar Destinations <i class="bi bi-arrow-right"></i></a>
-        </div> -->
 
       <button class="long-btn">
         <span class="btn-text">About Us</span>
@@ -265,7 +213,7 @@
 </section>
 
 <!-- ============ FEATURED SECTION ============ -->
-<section class="featured-section" id="featuredSection">
+<section class="featured-section">
   <div class="container">
 
     <div class="packages-heading">
@@ -284,7 +232,7 @@
 </section>
 
 <!-- ============ CHOOSE YOUR SEASON SECTION ============ -->
-<section class="season-section" id="seasonSection">
+<section class="season-section">
   <div class="container">
 
     <div class="packages-heading">
@@ -300,9 +248,8 @@ Handpicked getaways across India's most breathtaking regions — pick a travel s
 
     <div class="season-layout">
 
-      <!-- left: sticky season picker -->
       <aside class="season-sidebar">
-        <ul class="season-list" id="seasonList">
+        <ul class="season-list">
           <li class="season-item active" data-season="spring">
             <span class="season-icon"><i class="bi bi-flower1"></i></span>
             <span class="season-info">
@@ -330,7 +277,6 @@ Handpicked getaways across India's most breathtaking regions — pick a travel s
         </ul>
       </aside>
 
-      <!-- right: filtered package grid -->
       <div class="season-grid" id="seasonGrid"></div>
 
     </div>
@@ -338,7 +284,270 @@ Handpicked getaways across India's most breathtaking regions — pick a travel s
   </div>
 </section>
 
-<div class="hello" style="height: 100vh;"></div>
+<!-- ============ GALLERY SECTION ============ -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="packages-heading">
+      <div class="heading-left">
+        <span class="packages-eyebrow">Moments We've Captured</span>
+        <h2>Travel <span class="heading-highlight">Gallery</span></h2>
+      </div>
+      <div class="heading-right">
+        <p class="para">A collection of real moments from the road — <span class="highlight">move your cursor across the strip</span> to bring the frames into full view.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-viewport" id="galleryViewport">
+    <div class="gallery-track" id="galleryTrack">
+
+      <div class="gallery-col">
+        <div class="gallery-item g-edge"><img src="./images/img1.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/300x560/1ea0fe/ffffff?text=Add+Photo'"></div>
+      </div>
+
+      <div class="gallery-col gallery-stack">
+        <div class="gallery-item g-stack-bottom"><img src="./images/img2.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/380x260/1ea0fe/ffffff?text=Add+Photo'"></div>
+        <div class="gallery-item g-stack-top "><img src="./images/img3.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/380x260/1ea0fe/ffffff?text=Add+Photo'"></div>
+      </div>
+
+      <div class="gallery-col">
+        <div class="gallery-item g-large"><img src="./images/img6.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/660x600/1ea0fe/ffffff?text=Add+Photo'"></div>
+      </div>
+
+      <div class="gallery-col gallery-stack">
+        <div class="gallery-item g-stack-top"><img src="./images/img10.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/380x260/1ea0fe/ffffff?text=Add+Photo'"></div>
+        <div class="gallery-item g-stack-bottom"><img src="./images/img7.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/380x260/1ea0fe/ffffff?text=Add+Photo'"></div>
+      </div>
+
+      <div class="gallery-col">
+        <div class="gallery-item g-edge"><img src="./images/img9.jpg" alt="Travel moment" onerror="this.src='https://placehold.co/300x560/1ea0fe/ffffff?text=Add+Photo'"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <div class="lightbox-stage">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section class="faq-section">
+  <div class="container">
+
+    <div class="faq-layout">
+
+      <aside class="faq-sidebar">
+        <span class="packages-eyebrow">Need To Know</span>
+        <h2 class="faq-title">Got <span class="heading-highlight">Questions?</span></h2>
+        <p class="para faq-intro-text">Everything you'd want to know about our tours, bookings and how it all works — <span class="highlight">answered right here</span>.</p>
+
+        <div class="faq-contact-card">
+          <span class="faq-contact-icon"><i class="bi bi-chat-dots"></i></span>
+          <h3>Still have a question?</h3>
+          <p class="para">Can't find the answer you're looking for? Our team is happy to help with anything else on your mind.</p>
+          <a href="#contact" class="long-btn">
+            <span class="btn-text">Contact Us</span>
+            <span class="btn-arrow"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>Where do your travel packages come from?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Every package on this site is built and run in-house by our own guides and drivers — nothing is outsourced or resold from another operator.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are your bike and car packages guided?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Yes — every route comes with an experienced lead rider or driver, along with a support vehicle for the longer expeditions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What's included in the total price?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Stays, listed meals, permits and the vehicle or bike itself are included. Flights and personal expenses are not.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How far in advance should I book?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">For high season (May–September) we'd suggest booking at least 3–4 weeks ahead, since group sizes are kept small.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I customize an itinerary?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Absolutely — reach out with your dates and interests and we'll tailor an existing package or build a new one around them.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What's your cancellation policy?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Full refund up to 15 days before departure, 50% up to 7 days before, and no refund inside 7 days — dates can usually be moved instead.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you take bulk or group bookings?</span>
+            <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            <p class="para">Yes, for groups, offices or events — get in touch and we'll work out a custom itinerary and rate for the group.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-panel">
+    <div class="container">
+
+      <div class="footer-top">
+        <div class="footer-intro">
+          <p class="para footer-intro-text">Whether you're looking to plan a getaway, need custom route advice, or want to book a package — <span class="highlight">we're here to help</span>.</p>
+          <div class="footer-person">
+            <img src="./images/img2.jpg" class="footer-person-avatar" alt="Support person">
+            <div class="footer-person-info">
+              <span class="footer-person-name">Aditi Rao</span>
+              <span class="footer-person-role">Travel Success Manager</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3>Contact Us</h3>
+          <form class="footer-form" id="footerForm">
+            <div class="footer-form-row">
+              <input type="text" placeholder="Full Name *" required>
+              <input type="email" placeholder="E-mail *" required>
+            </div>
+            <div class="footer-form-row">
+              <input type="tel" placeholder="Phone Number *" required>
+            </div>
+            <textarea placeholder="Your Message" rows="3"></textarea>
+            <button type="submit" class="long-btn footer-submit-btn">
+              <span class="btn-text">Subscribe</span>
+              <span class="btn-arrow"><i class="bi bi-arrow-right"></i></span>
+            </button>
+          </form>
+          <p class="para footer-newsletter-note">Join our newsletter and stay updated on the latest travel deals and destinations.</p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-links-row">
+
+        <div class="footer-address">
+
+        <div class="footer-col footer-contact">
+          <span class="footer-col-label">Get In Touch</span>
+          <div class="footer-phone">(312) 555-2468</div>
+          <a href="mailto:hello@wanderland.com" class="footer-email">
+            <i class="bi bi-envelope"></i> hello@wanderland.com
+          </a>
+          <p class="para footer-address">123, Mall Road, Civil Lines, Ludhiana, Punjab, India – 141001</p>
+        </div>
+        </div>
+
+        <div class="footer-nav">
+        <div class="footer-col">
+          <span class="footer-col-label">Navigation</span>
+          <a href="#">Home</a>
+          <a href="#">About Me</a>
+          <a href="#">Cities</a>
+          <a href="#">Planning</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-label">Navigation</span>
+          <a href="#">Home</a>
+          <a href="#">About Me</a>
+          <a href="#">Cities</a>
+          <a href="#">Planning</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-label">Social</span>
+          <a href="#">Facebook <i class="bi bi-arrow-up-right"></i></a>
+          <a href="#">Instagram <i class="bi bi-arrow-up-right"></i></a>
+          <a href="#">YouTube <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        </div>
+
+      </div>
+
+      <div class="footer-logo">
+        <div class="footer-logo-blank"></div>
+
+      <div class="footer-logo-wrap">
+        <img src="images/logo/Full Logo Horizontal PNG.png" alt="WanderLand" class="footer-logo-img">
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 WanderLand. All rights reserved.</span>
+      <a href="" class="webpyrix">Developed By Webpyrix</a>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-wrap -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
