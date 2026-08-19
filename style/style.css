@@ -123,7 +123,7 @@ body{
 
 .menu-lines span{
     display:block;
-    width: 22px;
+    width: 24px;
     height: 2px;
     border-radius: 1px;
     transform: scaleY(.5);
@@ -778,7 +778,7 @@ body{
 
 .stat-card h3{
     font-size: 25px;
-    font-weight: 600;
+
     margin-bottom: 4px;
 }
 
@@ -850,7 +850,7 @@ body{
 }
 
 .about-title{
-    font-size: clamp(28px,3.4vw,38px);
+    font-size: clamp(26px,3.4vw,38px);
     font-weight: 600;
     line-height: 1.25;
     color: var(--white);
@@ -1084,9 +1084,7 @@ body{
     overflow: hidden;
 }
 
-.gallery-section .packages-heading{
-    padding-bottom: 40px;
-}
+
 
 .gallery-viewport{
     position: relative;
@@ -1094,7 +1092,7 @@ body{
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
-    padding: 10px 0;
+   
 }
 
 .gallery-track{
@@ -1434,7 +1432,7 @@ body{
 /* ============ FOOTER ============ */
 
 .site-footer{
-    margin-top: 40px;
+ 
     overflow: hidden;
 }
 
@@ -1906,3 +1904,16 @@ body.menu-open .site-header .menu-lines span{
 .menu-toggle.open:hover{
     background-color: var(--primary);
 }
+.footer-submit-btn{
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+

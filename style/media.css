@@ -1,170 +1,338 @@
 /* ======================================================================
    RESPONSIVE / MEDIA QUERIES
-   All @media rules for the site, pulled out of style.css so the base
-   styles stay easy to scan. Grouped by breakpoint, in the same order
-   the sections appear on the page.
+   Only 5 breakpoints are used in this entire file, and each one is
+   written ONCE. Every rule that applies at a given width — no matter
+   which section of the page it belongs to — sits inside that single
+   block.
    ====================================================================== */
 
-/* ============ HEADER ============ */
-@media (max-width: 768px){
-    .top-bar-inner{
-        padding: 14px 20px;
+@media (max-width: 1200px){
+    .packages-section{ padding: 100px 0 120px; }
+    .featured-section{ padding: 120px 0; }
+  
+    .gallery-section{ padding: 120px 0; }
+    .faq-section{ padding-bottom: 120px; }
+    .mega-menu-inner{ gap: 60px; padding-right: 40px; }
+  
+}
+@media (max-width: 1080px){
+          .stat-card h3 {
+        font-size: 20px;
     }
-    .main-nav ul{
-        gap: 18px;
-        padding: 14px 20px;
-        overflow-x: auto;
-        justify-content: flex-start;
+    .stat-card {
+        padding: 15px;
     }
-    .social-icons{
-        display:none;
+    .stat-card span {
+        margin-bottom: 0;
     }
-    .menu-toggle{
-        display:flex;
-        position: static;
-        transform: none;
-        opacity: 1;
+    .stat-card p{
+        line-height: 1.5;
     }
-}
-
-/* ============ ABOUT SECTION ============ */
-@media (max-width: 768px){
-    .about-stats{ grid-template-columns: repeat(2,1fr); }
-}
-
-@media (max-width: 480px){
-    .about-stats{ grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px){
-    .about-stats{ margin-bottom: -40px; }
-    .about-media{ min-height: 480px; }
-    .about-text-inner{ padding: 70px 28px 40px; max-width: 100%; }
-}
-
-@media (max-width: 576px){
-    .about-section{ padding-bottom: 90px; }
-    .about-stats{ grid-template-columns: 1fr; margin-bottom: -20px; }
-    .about-media{ min-height: 420px; }
-    .about-text-inner{ padding: 50px 22px 32px; }
-}
-
-/* ============ PACKAGES SECTION ============ */
-@media (max-width: 576px){
-    .packages-carousel-nav{ order: 3; width: 100%; justify-content: flex-start; }
-}
-
-@media (max-width: 768px){
-    .packages-heading{
-        grid-template-columns: 1fr;
-        gap: 18px;
+    .featured-body {
+        padding: 20px;
     }
+
+
+}
+@media (max-width: 992px){
+
+
+   
+  
+    .top-bar-inner{ padding: 0px 30px; }
+    .main-nav ul{ gap: 24px; }
+    .logo img{ width: 140px; }
+   
     .heading-right::before{ display:none; }
     .heading-right p{ padding-left: 0; }
-}
-
-@media (max-width: 576px){
-    .packages-section{ padding: 70px 0 90px; }
-    .packages-bottom-action{ justify-content: flex-start; }
-    .package-body{ padding: 18px 18px 22px; }
-}
-
-/* ============ FEATURED SECTION ============ */
-@media (max-width: 860px){
-    .featured-card{ flex-direction: column; }
-    .featured-img{ width: 100%; aspect-ratio: 16/10; }
-}
-
-@media (max-width: 700px){
-    .featured-grid{ grid-template-columns: 1fr; }
-}
-
-/* ============ CHOOSE YOUR SEASON SECTION ============ */
-@media (max-width: 992px){
     .season-layout{ grid-template-columns: 1fr; }
-    .season-sidebar{ position: static; margin-bottom: 44px; }
-}
-
-@media (max-width: 700px){
-    .season-grid{ grid-template-columns: 1fr; }
-}
-
-/* ============ GALLERY SECTION ============ */
-@media (max-width: 992px){
+    .season-sidebar{ position: static; margin-bottom: 32px; }
     .gallery-item.g-edge{ width: 100%; height: 400px; }
     .gallery-item.g-large{ width: 320px; height: 400px; }
     .gallery-item.g-stack-top{ width: 210px; height: 150px; }
     .gallery-item.g-stack-bottom{ width: 210px; height: 235px; }
-}
-
-@media (max-width: 600px){
-    .gallery-item.g-edge{ width: 100%; height: 300px; }
-    .gallery-item.g-large{ width: 250px; height: 300px; }
-    .gallery-item.g-stack-top{ width: 165px; height: 115px; }
-    .gallery-item.g-stack-bottom{ width: 165px; height: 180px; }
-    .gallery-col.gallery-stack{ gap: 14px; }
-    .gallery-track{ gap: 16px; }
-}
-
-/* ============ GALLERY LIGHTBOX ============ */
-@media (max-width: 600px){
-    .lightbox-nav{ width: 42px; height: 42px; font-size: 16px; }
-    .lightbox-prev{ left: 10px; }
-    .lightbox-next{ right: 10px; }
-    .lightbox-close{ top: 14px; right: 14px; width: 38px; height: 38px; }
-}
-
-/* ============ FAQ SECTION ============ */
-@media (max-width: 900px){
-    .faq-layout{ grid-template-columns: 1fr; }
+    .gallery-viewport{
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        padding: 0px 20px;
+    }
+    .gallery-viewport::-webkit-scrollbar{
+        display: none;
+    }
+    .gallery-track{
+        justify-content: flex-start;
+    }
+    .gallery-item{
+        scroll-snap-align: center;
+    }
+    .faq-layout{ grid-template-columns: 1fr;
+        gap: 44px;
+     }
     .faq-sidebar{ position: static; margin-bottom: 40px; }
-}
-
-/* ============ FOOTER ============ */
-@media (max-width: 900px){
-    .footer-top{ grid-template-columns: 1fr; gap: 40px; }
-    .footer-links-row{ grid-template-columns: 1fr 1fr; }
+    .footer-top{ gap: 50px;
+    padding-bottom: 75px; }
+    
+    .footer-links-row{ grid-template-columns: 1fr 1fr;
+    gap: 50px; padding-bottom: 60px; }
     .footer-contact{ grid-column: 1 / -1; }
-}
-
-@media (max-width: 576px){
-    .footer-panel{ padding: 50px 0 36px; }
-    .footer-links-row{ grid-template-columns: 1fr; gap: 30px; padding-bottom: 50px; }
-    .footer-form-row{ grid-template-columns: 1fr; }
-    .footer-bottom-inner{ flex-direction: column; align-items: flex-start; }
-    .footer-logo-img{ width: 220px; max-width: 80%; }
-}
-
-/* ============ MEGA MENU ============ */
-@media (max-width: 1200px){
-    .mega-menu-inner{ gap: 60px; padding-right: 40px; }
-}
-
-@media (max-width: 992px){
-    .mega-menu-inner{ gap: 40px; }
-    .mega-menu-content{ gap: 34px; }
-    .mega-menu-info{ gap: 26px; }
-}
-
-@media (max-width: 900px){
-    .mega-menu-inner{ grid-template-columns: 1fr 1fr; }
+    .mega-menu-inner{ gap: 40px; grid-template-columns: 1fr 1fr; }
     .mega-menu-content{ gap: 30px; }
     .mega-menu-info{ display: none; }
+    .featured-grid {
+            grid-template-columns: repeat(1, 1fr);
+    }
+        .featured-body {
+            padding: 24px 24px;
+        }
+        .faq-intro-text {
+            margin-bottom: 80px;
+        }
+
+        
+
+
+
+
+
+
 }
 
-@media (max-width: 700px){
-    .mega-menu{ height: 100vh; border-radius: 0; }
+@media (max-width: 768px){
+    /* .top-bar-inner{
+        padding: 14px 20px;
+    } */
+   
+
+    .logo img{ width: 128px; }
+    .main-nav ul{
+        /* gap: 18px; */
+        padding: 14px 20px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* justify-content: flex-start; */
+        scrollbar-width: none;
+    }
+    .main-nav ul::-webkit-scrollbar{
+        display: none;
+    }
+    .main-nav a{
+        white-space: nowrap;
+    }
+   
+  
+    .hero-content{ padding: 0 20px; }
+    .hero-content .para{ font-size: 13px; margin-top: 18px; }
+    .about-stats{ grid-template-columns: repeat(2,1fr); margin-bottom: -40px; }
+    .about-media{ min-height: 480px; }
+
+
+    .packages-carousel-nav{
+        align-self: flex-end;
+    }
+
+   
+   
+
+    .mega-menu{ height: 100vh; height: 100svh; border-radius: 0; }
     .mega-menu-inner{ grid-template-columns: 1fr; padding: 110px 22px 30px; overflow-y: auto; }
     .mega-menu-left{ display: none; }
     .mega-menu-list{ padding-left: 26px; }
     .mega-menu-list a{ font-size: clamp(22px, 6vw, 30px); }
 }
 
-/* short viewports (small laptops, landscape phones) — let the content
-   scroll internally instead of clipping the last link or the photo */
+@media (max-width: 576px){
+    .featured-section{ padding: 100px 0; }
+    .season-section{ padding: 60px 0; }
+    .gallery-section{ padding: 100px 0; }
+    .faq-section{ padding-bottom: 100px; }
+    .para{ font-size: 13px; }
+   
+   
+    .about-media{ min-height: 420px; }
+
+
+    .stat-card h3{ font-size: 18px; }
+    .packages-section{ padding: 70px 0 100px; }
+    .packages-filter{ gap: 18px; }
+    .filter-btn{ font-size: 12px; }
+    .packages-carousel-nav{ order: 3; width: 100%; justify-content: end; }
+  
+    .package-body{ padding: 16px }
+  
+    .season-sidebar{ padding: 6px 16px; }
+    .season-item{ padding: 14px 4px; gap: 12px; }
+    .season-icon{ width: 38px; height: 38px; font-size: 15px; }
+    .gallery-item.g-edge{ width: 260px; height: 300px; }
+    .gallery-item.g-large{ width: 230px; height: 300px; }
+    .gallery-item.g-stack-top{ width: 165px; height: 115px; }
+    .gallery-item.g-stack-bottom{ width: 165px; height: 180px; }
+    .gallery-col.gallery-stack{ gap: 14px; }
+    .gallery-track{ gap: 16px; }
+    .lightbox-nav{ width: 42px; height: 42px; font-size: 16px; }
+    .lightbox-prev{ left: 10px; }
+    .lightbox-next{ right: 10px; }
+    .lightbox-close{ top: 14px; right: 14px; width: 38px; height: 38px; }
+    .footer-panel{ padding: 50px 0 36px; }
+    .footer-top{ padding-bottom: 25px;     grid-template-columns: 1fr; }
+    .footer-links-row{ grid-template-columns: 1fr; padding-bottom: 50px; }
+    .footer-form-row{ grid-template-columns: 1fr; }
+  
+    .footer-logo{ grid-template-columns: 1fr; gap: 24px; }
+    .footer-logo-blank{ display: none; }
+    .footer-logo-img{ width: 200px; height: auto; }
+   
+        .top-bar-inner{ padding: 0px 16px; }
+            .main-nav ul {
+                gap: 21px;
+            }
+              .btn-contact{
+        padding: 8px 12px;
+        /* font-size: 10.5px; */
+    }
+    .social-icons a {
+        font-size: 13px;
+    }
+    .packages-toolbar {
+        margin-bottom: 25px;
+        gap: 0px;
+    }
+   .about-title {
+    margin-bottom: 15px;
+   }
+       .featured-body {
+        padding: 20px;
+       }
+     
+       .season-grid {
+            grid-template-columns: repeat(1, 1fr);
+       }
+       .footer-divider {
+        margin-bottom: 25px;
+       }
+        .packages-heading{
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-bottom: 30px;
+    margin-bottom: 30px;
+    }
+        .faq-intro-text {
+            margin-bottom: 60px;
+        }
+
+
+          
+
+
+
+
+
+
+
+            
+
+}
+
+@media (max-width: 480px){
+
+    .logo img{ width: 96px; }
+  
+    .btn-contact .btn-text{
+        white-space: nowrap;
+    }
+    .hero-section{ min-height: 480px; }
+    .hero-title{ letter-spacing: -0.4px; }
+
+    .package-title{ font-size: 15.5px; }
+    .price-value{ font-size: 16px; }
+    .featured-body{
+                padding: 16px;
+    }
+    .featured-title{ font-size: 15.5px; }
+    .faq-question{ padding: 18px 20px; font-size: 14px; gap: 14px; }
+    .faq-answer p{ padding: 0 20px 20px; }
+    .faq-contact-card{ padding: 24px 20px; }
+    .main-nav a {
+            font-size: 10px;
+
+    }
+        .main-nav ul {
+            gap:14px;
+            padding: 11px 16px;
+        }
+            .social-icons a {
+                font-size: 12px;
+            }
+            .social-icons {
+                gap: 15px;
+            }
+            .contact-wrap {
+                padding-left: 15px;
+            }
+            .header-left {
+                padding-right: 15px;
+            }
+            .btn-contact {
+                font-size: 11px;
+                   padding: 7px 10px;
+            }
+            .about-stats {
+                gap: 12px;
+            }
+                .stat-card {
+                    padding: 11px;
+                }
+                    .stat-card h3 {
+                        font-size: 16px;
+                    }
+                        .featured-card{ flex-direction: column; }
+    .featured-img{ width: 100%; aspect-ratio: 16/10; }
+    .featured-grid{ grid-template-columns: 1fr; }
+        .faq-sidebar {
+            margin-bottom: 20px;
+        }
+        .footer-bottom-inner span ,.webpyrix,.footer-bottom-links a{
+            font-size: 11px;
+        }
+        .top-bar-inner {
+            height: 53px;
+        }
+
+
+
+
+
+
+     
+
+
+
+
+
+        
+
+
+}
+
+/* These two use a different media feature (height / hover capability)
+   than the max-width scale above, so they stay on their own. */
+
 @media (max-height: 700px){
     .mega-menu-inner{ padding-top: 0; overflow-y: auto; }
     .mega-menu-list{ gap: 2px; }
     .mega-menu-list a{ font-size: clamp(20px, 3vw, 32px); line-height: 1.2; }
     .mega-menu-info{ gap: 20px; }
+}
+
+@media (hover: none){
+    .package-card:active,
+    .featured-card:active{
+        transform: scale(.98);
+    }
+    .package-cta:active,
+    .long-btn:active,
+    .btn-contact:active{
+        transform: scale(.96);
+    }
 }
