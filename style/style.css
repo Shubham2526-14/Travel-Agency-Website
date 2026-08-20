@@ -1238,7 +1238,7 @@ body{
 
 .lightbox-stage img{
     display: block;
-    max-width: 86vw;
+    max-width: 78vw;
     max-height: 86vh;
     width: auto;
     height: auto;
@@ -1577,16 +1577,16 @@ body{
 }
 
 .footer-col-label{
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 550;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: var(--para);
+    color: var(--heading);
     margin-bottom: 6px;
 }
 
 .footer-col a{
-    font-size: 14px;
+    font-size: 13px;
     color: var(--heading);
     width: fit-content;
     display: inline-flex;

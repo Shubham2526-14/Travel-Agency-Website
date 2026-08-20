@@ -31,6 +31,23 @@
     .featured-body {
         padding: 20px;
     }
+    .gallery-viewport{
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        padding: 0px 20px;
+    }
+    .gallery-viewport::-webkit-scrollbar{
+        display: none;
+    }
+    .gallery-track{
+        justify-content: flex-start;
+        margin: 0;
+    }
+    .gallery-item{
+        scroll-snap-align: center;
+    }
 
 
 }
@@ -47,30 +64,29 @@
     .heading-right p{ padding-left: 0; }
     .season-layout{ grid-template-columns: 1fr; }
     .season-sidebar{ position: static; margin-bottom: 32px; }
-    .gallery-item.g-edge{ width: 100%; height: 400px; }
+    .gallery-item.g-edge{  height: 400px; }
     .gallery-item.g-large{ width: 320px; height: 400px; }
     .gallery-item.g-stack-top{ width: 210px; height: 150px; }
     .gallery-item.g-stack-bottom{ width: 210px; height: 235px; }
-    .gallery-viewport{
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x proximity;
-        scrollbar-width: none;
-        padding: 0px 20px;
-    }
-    .gallery-viewport::-webkit-scrollbar{
-        display: none;
-    }
-    .gallery-track{
-        justify-content: flex-start;
-    }
-    .gallery-item{
-        scroll-snap-align: center;
-    }
+
     .faq-layout{ grid-template-columns: 1fr;
-        gap: 44px;
+        gap: 0px;
      }
-    .faq-sidebar{ position: static; margin-bottom: 40px; }
+    .faq-sidebar{ position: static; margin-bottom: 40px;     display: contents; }
+
+    
+
+
+
+.faq-list{
+    order: 2;
+}
+.faq-contact-card{
+    order: 3;
+    margin-top: 50px;
+
+}
+
     .footer-top{ gap: 50px;
     padding-bottom: 75px; }
     
@@ -87,9 +103,11 @@
             padding: 24px 24px;
         }
         .faq-intro-text {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
-
+.season-grid{
+    scroll-margin-top: 100px;
+}
         
 
 
@@ -143,10 +161,10 @@
 }
 
 @media (max-width: 576px){
-    .featured-section{ padding: 100px 0; }
+    .featured-section{ padding: 110px 0; }
     .season-section{ padding: 60px 0; }
-    .gallery-section{ padding: 100px 0; }
-    .faq-section{ padding-bottom: 100px; }
+    .gallery-section{ padding: 110px 0; }
+    .faq-section{ padding-bottom: 110px; }
     .para{ font-size: 13px; }
    
    
@@ -154,12 +172,12 @@
 
 
     .stat-card h3{ font-size: 18px; }
-    .packages-section{ padding: 70px 0 100px; }
+    .packages-section{ padding: 70px 0 110px; }
     .packages-filter{ gap: 18px; }
     .filter-btn{ font-size: 12px; }
-    .packages-carousel-nav{ order: 3; width: 100%; justify-content: end; }
+   
   
-    .package-body{ padding: 16px }
+    .package-body{ padding: 18px }
   
     .season-sidebar{ padding: 6px 16px; }
     .season-item{ padding: 14px 4px; gap: 12px; }
@@ -184,9 +202,7 @@
     .footer-logo-img{ width: 200px; height: auto; }
    
         .top-bar-inner{ padding: 0px 16px; }
-            .main-nav ul {
-                gap: 21px;
-            }
+          
               .btn-contact{
         padding: 8px 12px;
         /* font-size: 10.5px; */
@@ -195,7 +211,7 @@
         font-size: 13px;
     }
     .packages-toolbar {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
         gap: 0px;
     }
    .about-title {
@@ -207,36 +223,71 @@
      
        .season-grid {
             grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
        }
        .footer-divider {
         margin-bottom: 25px;
        }
         .packages-heading{
         grid-template-columns: 1fr;
-        gap: 18px;
-        padding-bottom: 30px;
-    margin-bottom: 30px;
-    }
-        .faq-intro-text {
-            margin-bottom: 60px;
+        gap: 10px;
         }
+        .faq-title {
+            margin-bottom: 10px;
+        }
+        .packages-heading {
+            border-bottom: none;
+            margin-bottom: 0px;
+        }
+            .season-sidebar {
+                margin-bottom: 0;
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .footer-col {
+                gap: 8px;
+            }
 
 
-          
+
+            /* Sirf non-scrolled (top) state me navbar minimal karna - sirf logo dikhana */
+.site-header:not(.scrolled) .header-left .social-icons{
+    display: none;
+}
+.site-header:not(.scrolled) .contact-wrap{
+    display: none;
+}
+.site-header:not(.scrolled) .main-nav{
+    max-height: 0;
+    opacity: 0;
+    border-color: transparent;
+}
+.site-header:not(.scrolled) .top-bar{
+    border-bottom-color: transparent;
+}
+.site-header:not(.scrolled) .header-left{
+    border-right-color: transparent;
+}
+.site-header:not(.scrolled) .contact-wrap{
+    border-left-color: transparent;
+}
+.featured-grid {
+    gap: 30px;
+
+}
 
 
 
 
-
-
-
-            
+         
 
 }
 
 @media (max-width: 480px){
 
-    .logo img{ width: 96px; }
+    .logo img{ width: 105px; }
   
     .btn-contact .btn-text{
         white-space: nowrap;
@@ -247,7 +298,7 @@
     .package-title{ font-size: 15.5px; }
     .price-value{ font-size: 16px; }
     .featured-body{
-                padding: 16px;
+                padding: 18px;
     }
     .featured-title{ font-size: 15.5px; }
     .faq-question{ padding: 18px 20px; font-size: 14px; gap: 14px; }
@@ -257,10 +308,7 @@
             font-size: 10px;
 
     }
-        .main-nav ul {
-            gap:14px;
-            padding: 11px 16px;
-        }
+      
             .social-icons a {
                 font-size: 12px;
             }
@@ -284,7 +332,7 @@
                     padding: 11px;
                 }
                     .stat-card h3 {
-                        font-size: 16px;
+                        font-size: 15px;
                     }
                         .featured-card{ flex-direction: column; }
     .featured-img{ width: 100%; aspect-ratio: 16/10; }
@@ -296,8 +344,18 @@
             font-size: 11px;
         }
         .top-bar-inner {
-            height: 53px;
+            height: 55px;
         }
+        .packages-padding{
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+        .packages-carousel-nav button.owl-prev, .packages-carousel-nav button.owl-next {
+            height: 37px;
+            width: 37px;
+        }
+
+
 
 
 

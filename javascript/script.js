@@ -242,13 +242,19 @@ document.addEventListener('DOMContentLoaded', function () {
     seasonGrid.innerHTML = list.map(seasonCardHTML).join('');
   }
 
-  seasonItems.forEach(function (item) {
-    item.addEventListener('click', function () {
-      seasonItems.forEach(function (s) { s.classList.remove('active'); });
-      item.classList.add('active');
-      renderSeason(item.dataset.season);
-    });
+seasonItems.forEach(function (item) {
+  item.addEventListener('click', function () {
+    seasonItems.forEach(function (s) { s.classList.remove('active'); });
+    item.classList.add('active');
+    renderSeason(item.dataset.season);
+
+    if (window.innerWidth <= 992 && seasonGrid) {
+      setTimeout(function () {
+        seasonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
   });
+});
 
   if (seasonGrid) {
     renderSeason('spring');
@@ -309,46 +315,60 @@ const galleryViewport = document.getElementById('galleryViewport');
 const galleryTrack = document.getElementById('galleryTrack');
 
 if (galleryViewport && galleryTrack) {
-  let maxScroll = 0;
-  let restX = 0;
-  let targetX = 0;
-  let currentX = 0;
 
-  function applyTransform(x) {
-    galleryTrack.style.transform = `translate3d(${Math.round(x * 100) / 100}px, 0, 0)`;
+  if (window.innerWidth > 1080) {
+    // ===== DESKTOP: mousemove transform effect =====
+    let maxScroll = 0;
+    let restX = 0;
+    let targetX = 0;
+    let currentX = 0;
+
+    function applyTransform(x) {
+      galleryTrack.style.transform = `translate3d(${Math.round(x * 100) / 100}px, 0, 0)`;
+    }
+
+    function recalcGallery() {
+      maxScroll = Math.max(0, galleryTrack.scrollWidth - galleryViewport.clientWidth);
+      restX = -maxScroll / 2;
+      targetX = restX;
+      currentX = restX;
+      applyTransform(currentX);
+    }
+
+    recalcGallery();
+    window.addEventListener('resize', recalcGallery);
+    window.addEventListener('load', recalcGallery);
+
+    galleryViewport.addEventListener('mousemove', function (e) {
+      const rect = galleryViewport.getBoundingClientRect();
+      let percent = (e.clientX - rect.left) / rect.width;
+      percent = Math.min(1, Math.max(0, percent));
+      targetX = -percent * maxScroll;
+    });
+
+    galleryViewport.addEventListener('mouseleave', function () {
+      targetX = restX;
+    });
+
+    function animateGallery() {
+      currentX += (targetX - currentX) * 0.08;
+      if (Math.abs(targetX - currentX) < 0.05) currentX = targetX;
+      applyTransform(currentX);
+      requestAnimationFrame(animateGallery);
+    }
+
+    animateGallery();
+
+  } else {
+    // ===== MOBILE/TABLET: native scroll, but start centered =====
+    function centerGalleryScroll() {
+      const maxScroll = Math.max(0, galleryTrack.scrollWidth - galleryViewport.clientWidth);
+      galleryViewport.scrollLeft = maxScroll / 2;
+    }
+
+    centerGalleryScroll();
+    window.addEventListener('load', centerGalleryScroll);
   }
-
-  function recalcGallery() {
-    maxScroll = Math.max(0, galleryTrack.scrollWidth - galleryViewport.clientWidth);
-    restX = -maxScroll / 2;
-    targetX = restX;
-    currentX = restX;
-    applyTransform(currentX);
-  }
-
-  recalcGallery();
-  window.addEventListener('resize', recalcGallery);
-  window.addEventListener('load', recalcGallery);
-
-  galleryViewport.addEventListener('mousemove', function (e) {
-    const rect = galleryViewport.getBoundingClientRect();
-    let percent = (e.clientX - rect.left) / rect.width;
-    percent = Math.min(1, Math.max(0, percent));
-    targetX = -percent * maxScroll;
-  });
-
-  galleryViewport.addEventListener('mouseleave', function () {
-    targetX = restX;
-  });
-
-  function animateGallery() {
-    currentX += (targetX - currentX) * 0.08;
-    if (Math.abs(targetX - currentX) < 0.05) currentX = targetX;
-    applyTransform(currentX);
-    requestAnimationFrame(animateGallery);
-  }
-
-  animateGallery();
 }
 
 const galleryItems = Array.from(galleryTrack.querySelectorAll('.gallery-item img'));
