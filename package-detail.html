@@ -16,6 +16,8 @@
 
 <body>
 
+  
+
     <style>
         
         .main-nav a {
@@ -92,6 +94,8 @@
   </nav>
 </header>
 
+
+
 <!-- Menu -->
 
 <div class="mega-menu" id="megaMenu">
@@ -126,6 +130,147 @@
     </div>
   </div>
 </div>
+
+
+
+
+<!-- ============ STICKY SUB NAVIGATION ============ -->
+<nav class="sub-nav" id="subNav">
+  <div class="container sub-nav-inner">
+    <ul class="sub-nav-list">
+      <li><a href="#overview" class="sub-nav-link active">Overview</a></li>
+      <li><a href="#itinerary" class="sub-nav-link">Itinerary</a></li>
+      <li><a href="#included" class="sub-nav-link">Inclusions</a></li>
+      <li><a href="#documents" class="sub-nav-link">Documents</a></li>
+      <li><a href="#dates" class="sub-nav-link">Dates &amp; Prices</a></li>
+      <li><a href="#faq" class="sub-nav-link">FAQ</a></li>
+    </ul>
+
+   
+  </div>
+</nav>
+
+<style>
+  /* ============ STICKY SUB NAVIGATION ============ */
+
+  body.menu-open .sub-nav{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sub-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1900;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgba(20,30,40,.08);
+    transform: translateY(-100%);
+    transition: transform .4s ease;
+}
+
+.sub-nav.show{
+    transform: translateY(60px);
+}
+
+.sub-nav-inner{
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    padding: 16px 40px;
+}
+
+
+
+.sub-nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.sub-nav-list::-webkit-scrollbar{
+    display: none;
+}
+
+.sub-nav-link{
+    position: relative;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--para);
+    padding-bottom: 4px;
+    transition: color .2s ease;
+}
+
+.sub-nav-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width .25s ease;
+}
+
+.sub-nav-link:hover{
+    color: var(--primary);
+}
+
+.sub-nav-link.active{
+    color: var(--primary);
+}
+
+.sub-nav-link.active::after{
+    width: 100%;
+}
+
+.sub-nav-btn{
+    flex-shrink: 0;
+    white-space: nowrap;
+    width: auto;
+    margin-bottom: 0;
+    background: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.sub-nav-btn .btn-text{
+    color: var(--primary);
+}
+
+.sub-nav-btn:hover{
+    color: var(--white);
+}
+
+.sub-nav-btn:hover .btn-text{
+    color: var(--white);
+}
+
+@media (max-width: 992px){
+    .sub-nav.show{
+        transform: translateY(60px);
+    }
+    .sub-nav-inner{
+        padding: 14px 20px;
+    }
+    .sub-nav-list{
+        gap: 22px;
+    }
+    .sub-nav-btn{
+        display: none;
+    }
+}
+</style>
+
+
+
 
 <div class="page-wrap">
 
@@ -1167,6 +1312,7 @@
         font-size: 20px;
     }
 }
+
 </style>
 
 
@@ -2885,148 +3031,11 @@
 
 
 
-
-
-</div><!-- /page-wrap -->\
-
+</div><!-- /page-wrap -->
 
 
 
 
-<!-- ============ STICKY SUB NAVIGATION ============ -->
-<nav class="sub-nav" id="subNav">
-  <div class="container sub-nav-inner">
-    <ul class="sub-nav-list">
-      <li><a href="#overview" class="sub-nav-link active">Overview</a></li>
-      <li><a href="#itinerary" class="sub-nav-link">Itinerary</a></li>
-      <li><a href="#included" class="sub-nav-link">Inclusions</a></li>
-      <li><a href="#documents" class="sub-nav-link">Documents</a></li>
-      <li><a href="#dates" class="sub-nav-link">Dates &amp; Prices</a></li>
-      <li><a href="#faq" class="sub-nav-link">FAQ</a></li>
-    </ul>
-
-   
-  </div>
-</nav>
-
-<style>
-  /* ============ STICKY SUB NAVIGATION ============ */
-
-.sub-nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1900;
-    background: var(--white);
-    box-shadow: 0 8px 24px rgba(20,30,40,.08);
-    transform: translateY(-100%);
-    transition: transform .4s ease;
-}
-
-.sub-nav.show{
-    transform: translateY(60px);
-}
-
-.sub-nav-inner{
-    display: flex;
-    align-items: center;
-    gap: 34px;
-    padding: 16px 40px;
-}
-
-.sub-nav-list{
-    display: flex;
-    align-items: center;
-    gap: 34px;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-/* .sub-nav-list{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 34px;
-    width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-} */
-
-.sub-nav-list::-webkit-scrollbar{
-    display: none;
-}
-
-.sub-nav-link{
-    position: relative;
-    white-space: nowrap;
-    font-size: 14px;
-    font-weight: 550;
-    color: var(--para);
-    padding-bottom: 4px;
-    transition: color .2s ease;
-}
-
-.sub-nav-link::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width .25s ease;
-}
-
-.sub-nav-link:hover{
-    color: var(--primary);
-}
-
-.sub-nav-link.active{
-    color: var(--primary);
-}
-
-.sub-nav-link.active::after{
-    width: 100%;
-}
-
-.sub-nav-btn{
-    flex-shrink: 0;
-    white-space: nowrap;
-    width: auto;
-    margin-bottom: 0;
-    background: none;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-}
-
-.sub-nav-btn .btn-text{
-    color: var(--primary);
-}
-
-.sub-nav-btn:hover{
-    color: var(--white);
-}
-
-.sub-nav-btn:hover .btn-text{
-    color: var(--white);
-}
-
-@media (max-width: 992px){
-    .sub-nav.show{
-        transform: translateY(60px);
-    }
-    .sub-nav-inner{
-        padding: 14px 20px;
-    }
-    .sub-nav-list{
-        gap: 22px;
-    }
-    .sub-nav-btn{
-        display: none;
-    }
-}
-</style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
