@@ -48,7 +48,95 @@
     .gallery-item{
         scroll-snap-align: center;
     }
+      .mega-menu-left{ display: none; }
 
+      
+      .mega-menu-left{ display: none; }
+
+.mega-menu-inner{
+    grid-template-columns: 1fr;
+    padding: 110px 60px 50px;
+}
+
+.mega-menu-content{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.mega-menu-right{
+    width: 100%;
+}
+
+.mega-menu-list{
+    padding-left: 0;
+    gap: 0;
+    width: 100%;
+    counter-reset: menu-counter;
+}
+
+.mega-menu-list li{
+    width: 100%;
+
+}
+
+
+
+.mega-menu-list a{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    font-size: 50px;
+    padding: 15px 0;
+    transition: padding-left .3s ease, color .3s ease;
+}
+
+.mega-menu-list a::before{
+    counter-increment: menu-counter;
+    content: counter(menu-counter, decimal-leading-zero);
+    position: static;
+    transform: none;
+    display: inline-block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: var(--primary);
+    opacity: .9;
+}
+
+.mega-menu-list a:hover,
+.mega-menu-list a.active{
+    padding-left: 7px;
+}
+
+.mega-menu-info{
+    display: flex;
+    flex-direction: row;
+  
+    width: 100%;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top:1px solid rgba(255,255,255,.12);
+    justify-content: space-between;
+            flex-direction: row-reverse;
+}
+
+.mega-menu-info-block{
+    flex: 1;
+}
+
+.mega-info-label{
+    font-size: 11px;
+    letter-spacing: 1.6px;
+}
+
+.mega-menu-info-block a,
+.mega-info-line{
+    font-size: 14px;
+}
 
 }
 @media (max-width: 992px){
@@ -93,9 +181,9 @@
     .footer-links-row{ grid-template-columns: 1fr 1fr;
     gap: 50px; padding-bottom: 60px; }
     .footer-contact{ grid-column: 1 / -1; }
-    .mega-menu-inner{ gap: 40px; grid-template-columns: 1fr 1fr; }
-    .mega-menu-content{ gap: 30px; }
-    .mega-menu-info{ display: none; }
+
+  
+  
     .featured-grid {
             grid-template-columns: repeat(1, 1fr);
     }
@@ -149,15 +237,15 @@
     .packages-carousel-nav{
         align-self: flex-end;
     }
+        .mega-menu-list a {
+            font-size: 44px;
+        }
+
 
    
    
 
-    .mega-menu{ height: 100vh; height: 100svh; border-radius: 0; }
-    .mega-menu-inner{ grid-template-columns: 1fr; padding: 110px 22px 30px; overflow-y: auto; }
-    .mega-menu-left{ display: none; }
-    .mega-menu-list{ padding-left: 26px; }
-    .mega-menu-list a{ font-size: clamp(22px, 6vw, 30px); }
+
 }
 
 @media (max-width: 576px){
@@ -173,7 +261,7 @@
 
     .stat-card h3{ font-size: 18px; }
     .packages-section{ padding: 70px 0 110px; }
-    .packages-filter{ gap: 18px; }
+  
     .filter-btn{ font-size: 12px; }
    
   
@@ -194,7 +282,7 @@
     .lightbox-close{ top: 14px; right: 14px; width: 38px; height: 38px; }
     .footer-panel{ padding: 50px 0 36px; }
     .footer-top{ padding-bottom: 25px;     grid-template-columns: 1fr; }
-    .footer-links-row{ grid-template-columns: 1fr; padding-bottom: 50px; }
+    .footer-links-row{ grid-template-columns: 1fr; padding-bottom: 50px; gap: 40px; }
     .footer-form-row{ grid-template-columns: 1fr; }
   
     .footer-logo{ grid-template-columns: 1fr; gap: 24px; }
@@ -227,6 +315,7 @@
        }
        .footer-divider {
         margin-bottom: 25px;
+        
        }
         .packages-heading{
         grid-template-columns: 1fr;
@@ -245,7 +334,12 @@
             .footer-nav {
                 flex-direction: column;
                 gap: 30px;
+                    order: 1;
             }
+            .footer-address{
+    order: 2;
+
+}
             .footer-col {
                 gap: 8px;
             }
@@ -277,6 +371,38 @@
     gap: 30px;
 
 }
+    .mega-menu-list a {
+        padding: 7px 0;
+font-size: 28px;
+    }
+    .mega-menu-content {
+        justify-content: center;
+    }
+        .mega-menu-inner {
+            padding: 0px 25px;
+        }
+            .mega-menu-info-block a, .mega-info-line {
+                font-size: 13px;
+            }
+                .mega-menu-info {
+                            margin-top: 30px;
+        padding-top: 30px;
+                }
+                .mega-menu {
+                    height: 100vh;
+                    border-radius: 0;
+                }
+                .menu-toggle.open {
+                    height: 34px;
+                    width: 34px;
+                }
+                
+
+
+
+
+
+
 
 
 
@@ -354,6 +480,36 @@
             height: 37px;
             width: 37px;
         }
+        .packages-bottom-action {
+            margin-top: 48px;
+        }
+        .packages-eyebrow {
+            font-size: 10px;
+            
+        }
+        .heading-left::before {
+            margin-bottom: 14px;
+            width: 37px;
+        }
+        .btn-padding{
+            margin-top: 30px;
+        }
+            .lightbox-nav {
+                        width: 33px;
+        height: 33px;
+        font-size: 13px;
+            }
+                .lightbox-close {
+                            width: 33px;
+        height: 33px;
+        font-size: 14px;
+                }
+                
+
+
+
+
+
 
 
 
@@ -376,12 +532,6 @@
 /* These two use a different media feature (height / hover capability)
    than the max-width scale above, so they stay on their own. */
 
-@media (max-height: 700px){
-    .mega-menu-inner{ padding-top: 0; overflow-y: auto; }
-    .mega-menu-list{ gap: 2px; }
-    .mega-menu-list a{ font-size: clamp(20px, 3vw, 32px); line-height: 1.2; }
-    .mega-menu-info{ gap: 20px; }
-}
 
 @media (hover: none){
     .package-card:active,

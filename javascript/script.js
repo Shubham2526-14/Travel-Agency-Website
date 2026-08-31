@@ -428,38 +428,64 @@ document.querySelectorAll('.gallery-item').forEach(function (item) {
   item.appendChild(icon);
 });
 
-const faqItems = document.querySelectorAll('#faqList .faq-item');
 
-faqItems.forEach(function (item) {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
 
-  if (item.classList.contains('active')) {
-    answer.style.maxHeight = answer.scrollHeight + 'px';
-  }
 
-  question.addEventListener('click', function () {
-    const isActive = item.classList.contains('active');
+// FAQ
 
-    faqItems.forEach(function (other) {
-      other.classList.remove('active');
-      other.querySelector('.faq-answer').style.maxHeight = null;
-    });
 
-    if (!isActive) {
-      item.classList.add('active');
+function initAccordion(listId) {
+  const items = document.querySelectorAll('#' + listId + ' .faq-item');
+
+  items.forEach(function (item) {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-toggle i');
+
+    if (item.classList.contains('active')) {
       answer.style.maxHeight = answer.scrollHeight + 'px';
+      icon.classList.remove('bi-plus');
+      icon.classList.add('bi-dash');
+    }
+
+    question.addEventListener('click', function () {
+      const isActive = item.classList.contains('active');
+
+      items.forEach(function (other) {
+        other.classList.remove('active');
+        other.querySelector('.faq-answer').style.maxHeight = null;
+        const otherIcon = other.querySelector('.faq-toggle i');
+        otherIcon.classList.remove('bi-dash');
+        otherIcon.classList.add('bi-plus');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.classList.remove('bi-plus');
+        icon.classList.add('bi-dash');
+      }
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    const openItem = document.querySelector('#' + listId + ' .faq-item.active');
+    if (openItem) {
+      const openAnswer = openItem.querySelector('.faq-answer');
+      openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
     }
   });
-});
+}
 
-window.addEventListener('resize', function () {
-  const openItem = document.querySelector('#faqList .faq-item.active');
-  if (openItem) {
-    const openAnswer = openItem.querySelector('.faq-answer');
-    openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
-  }
-});
+initAccordion('faqList');
+initAccordion('itineraryList');
+initAccordion('pageFaqList');
+
+
+
+
+
+// footer
 
 const footerForm = document.getElementById('footerForm');
 if (footerForm) {
@@ -468,3 +494,10 @@ if (footerForm) {
     footerForm.reset();
   });
 }
+
+
+
+// project detail page (hero section img)
+
+
+
