@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - WanderLand</title>
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="./style/media.css">
+</head>
+
+<body>
+    <style>
+        .main-nav a { color: var(--heading); }
+        .social-icons a { color: var(--heading); }
+        .top-bar { border-bottom: 1px solid rgb(0 0 0 / 16%); }
+        .contact-wrap { border-left: 1px solid rgb(0 0 0 / 16%); }
+        .header-left { border-right: 1px solid rgb(0 0 0 / 16%); }
+        .main-nav { border-bottom: 1px solid rgb(0 0 0 / 16%); }
+    </style>
+
+<header class="site-header" id="siteHeader">
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+
+      <div class="header-left">
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <span class="menu-lines">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+
+      <a href="index.html" class="logo">
+       <img src="images/logo/Full Logo Horizontal PNG.png" alt="Logo">
+      </a>
+
+      <div class="contact-wrap">
+        <a href="contact.html">
+          <button class="btn-contact project-cta-btn">
+            <span class="btn-text">Contact Us</span>
+          </button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Second nav: main menu -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li class="has-dropdown">
+        <a href="package-detail.html" class="dropdown-trigger">
+          Packages <i class="bi bi-chevron-down dropdown-arrow"></i>
+        </a>
+        <ul class="nav-dropdown">
+          <li><a href="bike-packages.html">Bike Packages</a></li>
+          <li><a href="car-packages.html">Car Packages</a></li>
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<!-- ============ FULLSCREEN MENU OVERLAY ============ -->
+<div class="mega-menu" id="megaMenu">
+  <div class="mega-menu-inner">
+    <div class="mega-menu-left">
+      <img src="./images/img6.jpg" alt="" id="megaMenuImg" class="mega-menu-img show">
+    </div>
+    <div class="mega-menu-content">
+      <div class="mega-menu-right">
+        <ul class="mega-menu-list">
+          <li><a href="index.html" data-img="./images/img6.jpg">Home</a></li>
+          <li><a href="about.html" data-img="./images/img4.jpg" class="active">About</a></li>
+          <li><a href="package-detail.html" data-img="./images/img1.jpg">Packages</a></li>
+          <li><a href="#" data-img="./images/img9.jpg">Stories</a></li>
+          <li><a href="#" data-img="./images/img5.jpg">Gallery</a></li>
+          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-menu-info">
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Social</span>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Find Us</span>
+          <p class="mega-info-line">123, Mall Road, Civil Lines</p>
+          <p class="mega-info-line">Ludhiana, Punjab, India – 141001</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE WRAP ============ -->
+<div class="page-wrap">
+
+  <!-- ============================================================
+       1. ABOUT HERO SECTION (Our Philosophy)
+       ============================================================ -->
+  <section class="about-hero-section">
+    <div class="container">
+
+      <!-- Reusable Center Heading (Matches index.html) -->
+      <div class="section-heading-center">
+        <span class="packages-eyebrow">Our Philosophy</span>
+
+        <h1>
+          We plan journeys  — <span class="heading-highlight">slowly, intention.</span>
+        </h1>
+
+        <p class="para">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident veniam aliquam natus quae tenetur nihil laborum velit, necessitatibus deserunt nemo distinctio sequi reprehenderit magnam. Quas doloribus suscipit repudiandae possimus distinctio.
+Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ratione fugiat officiis necessitatibus libero non omnis neque sunt nobis! Quam adipisci voluptatum reiciendis quisquam possimus at veritatis suscipit illum!        </p>
+      </div>
+         </div>
+
+      <!-- Big Center Rounded Image -->
+      <div class="about-hero-image-wrap">
+        <div class="about-hero-image-card">
+          <img src="./images/img10.webp" alt="WanderLand Landscape" onerror="this.src='https://placehold.co/1200x675/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+      </div>
+
+ 
+  </section>
+
+  <style>
+    /* ============ 1. ABOUT HERO SECTION STYLES ============ */
+    .about-hero-section {
+        padding: 180px 0 50px;
+        text-align: center;
+    }
+
+    /* Common Reusable Section Heading */
+    .section-heading-center {
+        text-align: center;
+        max-width: 820px;
+        margin: 0 auto 50px;
+  
+    }
+
+    .section-heading-center .packages-eyebrow {
+        margin-bottom: 14px;
+        display: inline-block;
+    }
+
+    .section-heading-center h1,
+    .section-heading-center h2 {
+        font-size: clamp(26px, 3.8vw, 44px);
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--heading);
+        margin-bottom: 18px;
+    }
+
+    .section-heading-center .para {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--para);
+        /* max-width: 640px; */
+        margin: 0 auto;
+    }
+
+    /* Center Rounded Image */
+
+
+    .about-hero-image-card {
+        width: 100%;
+        /* aspect-ratio: 16 / 9; */
+        height: 520px;
+        /* border-radius: var(--card-radius); */
+        overflow: hidden;
+   
+        /* border: 1px solid #dfe3e4; */
+    }
+
+    .about-hero-image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.8s ease;
+    }
+
+    .about-hero-image-card:hover img {
+        transform: scale(1.03);
+    }
+
+
+  </style>
+
+
+  <!-- ============================================================
+       2. SCROLL TIMELINE SECTION (Our Evolution)
+       ============================================================ -->
+  <section class="journey-timeline-section" id="journeyTimeline">
+    <div class="container">
+
+      <!-- Reusable Heading (Same class) -->
+      <div class="section-heading-center" style="margin-bottom: 14px;">
+        <span class="packages-eyebrow">Our Journey</span>
+        <!-- <h2>
+          A journey built on <span class="heading-highlight">people and progress</span>
+        </h2>
+        <p class="para">
+          From our roots to industry-leading expeditions, we've evolved with purpose and passion.
+        </p> -->
+      </div>
+
+
+
+
+
+      
+
+      <!-- Timeline Wrapper -->
+      <div class="journey-timeline-body">
+
+        <!-- Track Line & Scroll Progress Line -->
+        <div class="journey-line-track" id="journeyTrack">
+          <div class="journey-line-progress" id="journeyProgress"></div>
+        </div>
+
+        <!-- 1. 1950s -->
+        <div class="journey-row is-right">
+          <div class="journey-side journey-side-left"></div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right">
+            <h3 class="journey-year">1950s</h3>
+            <p class="para journey-desc">Co-operative Travel and Portman established, laying the foundation for decades of trusted travel expertise.</p>
+          </div>
+        </div>
+
+        <!-- 2. 2010 -->
+        <div class="journey-row is-left">
+          <div class="journey-side journey-side-left">
+            <h3 class="journey-year">2010</h3>
+            <p class="para journey-desc">Clarity is founded as a joint venture between The Co-operative Group, Midlands Co-operative Society and Thomas Cook.</p>
+          </div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right"></div>
+        </div>
+
+        <!-- 3. 2019 -->
+        <div class="journey-row is-right">
+          <div class="journey-side journey-side-left"></div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right">
+            <h3 class="journey-year">2019</h3>
+            <p class="para journey-desc">Clarity acquires Ian Allan and Portman Travel, forming Portman Travel Group bringing together over 60 years of travel experience.<br><br>Launch of Destination Sport. A new division dedicated to serving global sports travel needs.<br><br>Brighter is born. Clarity introduces its specialist event management brand, delivering unforgettable experiences.</p>
+          </div>
+        </div>
+
+        <!-- 4. 2022 -->
+        <div class="journey-row is-left">
+          <div class="journey-side journey-side-left">
+            <h3 class="journey-year">2022</h3>
+            <p class="para journey-desc">One Global is launched, a global travel community with World Travel in the US.</p>
+          </div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right"></div>
+        </div>
+
+        <!-- 5. 2023 -->
+        <div class="journey-row is-right">
+          <div class="journey-side journey-side-left"></div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right">
+            <h3 class="journey-year">2023</h3>
+            <p class="para journey-desc">Agiito (formerly Capita Travel and Events) joins the family, placing Clarity among the top 10 TMCs in Europe.</p>
+          </div>
+        </div>
+
+        <!-- 6. 2024 -->
+        <div class="journey-row is-left">
+          <div class="journey-side journey-side-left">
+            <h3 class="journey-year">2024</h3>
+            <p class="para journey-desc">Following the acquisition in late 2023 — this is the start of our integration and evolution, bringing together two of the UK's leading Travel Management Companies. Clarity and Brighter both rebranded with a fresh new look.</p>
+          </div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right"></div>
+        </div>
+
+        <!-- 7. 2025+ -->
+        <div class="journey-row is-right">
+          <div class="journey-side journey-side-left"></div>
+          <div class="journey-center-col">
+            <span class="journey-dot"></span>
+          </div>
+          <div class="journey-side journey-side-right">
+            <h3 class="journey-year">2025+</h3>
+            <p class="para journey-desc">Expanded our specialist services further with the introduction of dedicated Entertainment &amp; Media and Nordics sector offerings.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    /* ============ 2. SCROLL TIMELINE SECTION STYLES ============ */
+    .journey-timeline-section {
+        /* padding: 100px 0 70px; */
+        /* background-color: var(--white); */
+        position: relative;
+        overflow: hidden;
+        /* background-color: var(--section-color); */
+        border-radius: 80px;
+    }
+
+  
+
+    .journey-timeline-body {
+        position: relative;
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 20px 15px 40px;
+    }
+
+    /* Track line (Desktop center) */
+    .journey-line-track {
+        position: absolute;
+        left: 50%;
+        top: 25px;
+        bottom: 35px;
+        width: 3px;
+        background: #e5e9ec;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        z-index: 1;
+    }
+
+    /* Animated progress line */
+    .journey-line-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0px;
+        background: var(--primary);
+        border-radius: 999px;
+        transition: height 0.08s linear;
+        will-change: height;
+    }
+
+    /* Desktop Alternating Rows (3 columns) */
+    .journey-row {
+        display: grid;
+        grid-template-columns: 1fr 70px 1fr;
+        align-items: flex-start;
+        margin-bottom: 85px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .journey-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .journey-center-col {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Dot Inactive */
+    .journey-dot {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: #e2e8ea;
+        border: 3px solid var(--white);
+        /* box-shadow: 0 0 0 1px #d0d7da; */
+        margin-top: 10px;
+        opacity: 0.45;
+        transform: scale(0.9);
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Dot Active (Solid Black when line reaches it) */
+    .journey-row.active .journey-dot {
+        opacity: 1;
+        background:var(--heading);
+        border: 3px solid var(--section-color);
+        /* box-shadow: 0 0 0 2px #1a1a1a, 0 4px 12px rgba(0, 0, 0, 0.25); */
+        transform: scale(1.25);
+    }
+
+    .journey-year {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(22px, 3.4vw, 33px);
+        font-weight: 600;
+    
+        color: var(--heading);
+        line-height: 1.15;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    .journey-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--para);
+    }
+
+    /* Desktop Left side */
+    .journey-side-left {
+        text-align: right;
+        padding-right: 25px;
+    }
+
+    .journey-side-left .journey-desc {
+        margin-left: auto;
+        max-width: 440px;
+    }
+
+    /* Desktop Right side */
+    .journey-side-right {
+        text-align: left;
+        padding-left: 25px;
+    }
+
+    .journey-side-right .journey-desc {
+        margin-right: auto;
+        max-width: 440px;
+    }
+
+  
+  </style>
+
+
+
+
+<!-- ============================================================
+     CEO / FOUNDER SECTION
+     ============================================================ -->
+<section class="ceo-section">
+  <div class="container">
+
+
+
+          <div class="section-heading-center">
+        <span class="packages-eyebrow">Our Evolution</span>
+        <h2>
+            Meet<span class="heading-highlight"> Founder</span>
+        </h2>
+        <p class="para">
+          From our roots to industry-leading expeditions, we've evolved with purpose and passion.
+        </p>
+      </div>
+
+    <div class="ceo-layout">
+
+      <div class="ceo-img">
+        <img src="./images/img-cover-m.jpg" alt="WanderLand Founder" onerror="this.src='https://placehold.co/700x700/1ea0fe/ffffff?text=Add+Photo'">
+      </div>
+
+      <div class="ceo-content">
+        <h2 class="ceo-heading">
+          <span class="ceo-heading-light">Trips planned by someone who's</span> actually been there
+        </h2>
+
+        <p class="para ceo-text">Every itinerary we run has been walked, ridden, or driven by our own team first. No trip goes live until someone from WanderLand has done it themselves — checked the hotel, timed the drive, and found the table with the best view.</p>
+
+        <div class="ceo-stats">
+          <div class="ceo-stat">
+            <span class="ceo-stat-num">12+</span>
+            <span class="ceo-stat-label">Years Guiding Trips</span>
+          </div>
+          <div class="ceo-stat">
+            <span class="ceo-stat-num">400+</span>
+            <span class="ceo-stat-label">Trips Planned</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ============ CEO / FOUNDER SECTION ============ */
+
+.ceo-section{
+    padding: 150px 0px;
+}
+
+.ceo-layout{
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: 60px;
+    align-items: center;
+    background-color: var(--section-color);
+    border-radius: var(--card-radius);
+}
+
+.ceo-img{
+    /* aspect-ratio: 1 / 1; */
+    height: 540px;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+.ceo-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ceo-heading{
+    font-size: clamp(24px, 2.8vw, 34px);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.ceo-heading-light{
+    color: var(--para);
+    font-weight: 500;
+}
+
+.ceo-text{
+    font-size: 14px;
+    line-height: 1.75;
+    max-width: 460px;
+    margin-bottom: 50px;
+}
+
+.ceo-stats{
+    display: flex;
+    gap: 60px;
+}
+
+.ceo-stat{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ceo-stat-num{
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+.ceo-stat-label{
+    font-size: 12px;
+    color: var(--para);
+}
+
+.ceo-content{
+  padding-right: 20px;
+}
+
+</style>
+
+
+
+
+
+
+
+<style>
+
+  /* ============================================================
+   RESPONSIVE — ALL SECTIONS (About Hero + Journey Timeline + CEO)
+   ============================================================ */
+
+@media (max-width: 992px) {
+  /* About Hero */
+  .about-hero-section { padding: 130px 0 90px; }
+  .about-hero-image-card { height: 420px; }
+
+  /* Journey Timeline */
+  .journey-timeline-section { padding: 90px 0 120px; }
+  .journey-row { margin-bottom: 65px; }
+
+  /* CEO / Founder */
+  .ceo-layout { grid-template-columns: 380px 1fr; gap: 40px; }
+  .ceo-img { height: 460px; }
+  .ceo-stats { gap: 40px; }
+}
+
+@media (max-width: 767px) {
+  /* About Hero */
+  .about-hero-section { padding: 100px 0 70px; }
+  .about-hero-image-card { height: 320px; }
+
+  /* Journey Timeline */
+  .journey-timeline-section { padding: 70px 0 90px; }
+  .journey-timeline-body { padding: 10px 15px 30px 42px; }
+
+  .journey-line-track {
+    left: 17px;
+    top: 12px;
+    bottom: 25px;
+    width: 2px;
+    transform: none;
+  }
+
+  .journey-row {
+    display: block;
+    position: relative;
+    margin-bottom: 48px;
+  }
+
+  .journey-center-col {
+    position: absolute;
+    left: -32px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .journey-dot {
+    width: 14px;
+    height: 14px;
+    margin-top: 0;
+    border: 2.5px solid var(--white);
+    box-shadow: 0 0 0 1px #d0d7da;
+  }
+
+  .journey-row.active .journey-dot {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px #1a1a1a;
+  }
+
+  .journey-row.is-right .journey-side-left { display: none !important; }
+  .journey-row.is-left .journey-side-right { display: none !important; }
+
+  .journey-side-left,
+  .journey-side-right {
+    display: block !important;
+    text-align: left !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .journey-side-left .journey-desc,
+  .journey-side-right .journey-desc {
+    margin: 0 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .journey-year { margin-bottom: 8px; }
+  .journey-desc { font-size: 13.5px; line-height: 1.6; color: var(--para); }
+
+  /* CEO / Founder */
+  .ceo-section { padding: 0 0 90px; }
+  .ceo-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .ceo-img {
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  .ceo-text { margin: 0 auto 34px; }
+  .ceo-stats { justify-content: center; }
+}
+
+@media (max-width: 576px) {
+  /* About Hero */
+  .about-hero-section { padding: 90px 0 60px; }
+  .about-hero-image-card { height: 240px; }
+
+  /* Journey Timeline */
+  .journey-timeline-body { padding: 10px 12px 24px 36px; }
+  .journey-line-track { left: 14px; }
+  .journey-center-col { left: -26px; }
+
+  /* CEO / Founder */
+  .ceo-img { max-width: 240px; height: 240px; }
+  .ceo-stats { gap: 28px; }
+  .ceo-stat-num { font-size: 26px; }
+}
+</style>
+
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-panel">
+      <div class="container">
+
+        <div class="footer-top">
+          <div class="footer-intro">
+            <p class="para footer-intro-text">Whether you're looking to plan a getaway, need custom route advice, or want to book a package — <span class="highlight">we're here to help</span>.</p>
+            <div class="footer-person">
+              <img src="./images/img2.jpg" class="footer-person-avatar" alt="Support person">
+              <div class="footer-person-info">
+                <span class="footer-person-name">Aditi Rao</span>
+                <span class="footer-person-role">Travel Success Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-newsletter">
+            <h3>Contact Us</h3>
+            <form class="footer-form" id="footerForm">
+              <div class="footer-form-row">
+                <input type="text" placeholder="Full Name *" required>
+                <input type="email" placeholder="E-mail *" required>
+              </div>
+              <div class="footer-form-row">
+                <input type="tel" placeholder="Phone Number *" required>
+              </div>
+              <textarea placeholder="Your Message" rows="3"></textarea>
+              <button type="submit" class="long-btn footer-submit-btn">
+                <span class="btn-text">Subscribe</span>
+                <span class="btn-arrow"><i class="bi bi-arrow-right"></i></span>
+              </button>
+            </form>
+            <p class="para footer-newsletter-note">Join our newsletter and stay updated on the latest travel deals and destinations.</p>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-links-row">
+          <div class="footer-address">
+            <div class="footer-col footer-contact">
+              <span class="footer-col-label">Get In Touch</span>
+              <div class="footer-phone">(312) 555-2468</div>
+              <a href="mailto:hello@wanderland.com" class="footer-email">
+                <i class="bi bi-envelope"></i> hello@wanderland.com
+              </a>
+              <p class="para footer-address">123, Mall Road, Civil Lines, Ludhiana, Punjab, India – 141001</p>
+            </div>
+          </div>
+
+          <div class="footer-nav">
+            <div class="footer-col">
+              <span class="footer-col-label">Navigation</span>
+              <a href="index.html">Home</a>
+              <a href="about.html">About Me</a>
+              <a href="bike-packages.html">Bike Packages</a>
+              <a href="car-packages.html">Car Packages</a>
+            </div>
+            <div class="footer-col">
+              <span class="footer-col-label">Navigation</span>
+              <a href="index.html">Home</a>
+              <a href="about.html">About Me</a>
+              <a href="bike-packages.html">Bike Packages</a>
+              <a href="car-packages.html">Car Packages</a>
+            </div>
+
+            <div class="footer-col">
+              <span class="footer-col-label">Social</span>
+              <a href="#">Facebook <i class="bi bi-arrow-up-right"></i></a>
+              <a href="#">Instagram <i class="bi bi-arrow-up-right"></i></a>
+              <a href="#">YouTube <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-logo">
+          <div class="footer-logo-blank"></div>
+          <div class="footer-logo-wrap">
+            <img src="images/logo/Full Logo Horizontal PNG.png" alt="WanderLand" class="footer-logo-img">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2026 WanderLand. All rights reserved.</span>
+        <a href="" class="webpyrix">Developed By Webpyrix</a>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./javascript/script.js"></script>
+
+<!-- ============ TIMELINE SCROLL SCRIPT ============ -->
+<script>
+function initJourneyTimeline() {
+  const track = document.getElementById('journeyTrack');
+  const progress = document.getElementById('journeyProgress');
+  const rows = document.querySelectorAll('.journey-row');
+
+  if (!track || !progress || rows.length === 0) return;
+
+  function onScroll() {
+    const trackRect = track.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Screen ke 50% (center of viewport) par line calculate karein
+    const triggerY = windowHeight * 0.5;
+
+    const currentDist = triggerY - trackRect.top;
+    const totalDist = trackRect.height;
+
+    let linePixels = Math.max(0, Math.min(totalDist, currentDist));
+    progress.style.height = linePixels + 'px';
+
+    // Dot activation check: jab line dot ke center tak pohnche
+    rows.forEach(function (row) {
+      const dot = row.querySelector('.journey-dot');
+      if (!dot) return;
+      const dotRect = dot.getBoundingClientRect();
+      const dotCenterY = dotRect.top + (dotRect.height / 2);
+
+      if (dotCenterY <= triggerY) {
+        row.classList.add('active');
+      } else {
+        row.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initJourneyTimeline);
+} else {
+  initJourneyTimeline();
+}
+</script>
+
+</body>
+</html>

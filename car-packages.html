@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Packages - WanderLand</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="./style/media.css">
+</head>
+
+<body>
+
+      <style>
+        .main-nav a {  color: var(--heading); }
+        .social-icons a { color: var(--heading); }
+        .top-bar { border-bottom: 1px solid rgb(0 0 0 / 16%); }
+        .contact-wrap { border-left: 1px solid rgb(0 0 0 / 16%); }
+        .header-left { border-right: 1px solid rgb(0 0 0 / 16%); }
+        .main-nav { border-bottom: 1px solid rgb(0 0 0 / 16%); }
+    </style>
+
+<header class="site-header" id="siteHeader">
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+
+      <div class="header-left">
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+  <span class="menu-lines">
+    <span></span>
+    <span></span>
+  </span>
+</button>
+      </div>
+
+      <a href="index.html" class="logo">
+       <img src="images/logo/Full Logo Horizontal PNG.png" alt="Logo">
+      </a>
+
+      <div class="contact-wrap">
+  <button class="btn-contact project-cta-btn">
+  
+  <span class="btn-text ">Contact Us</span>
+
+</button>
+</div>
+
+    </div>
+  </div>
+
+    <!-- Second nav: main menu -->
+
+  <nav class="main-nav">
+    <ul>
+     <li><a href="index.html" >Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="package-detail.html" class="dropdown-trigger active">
+          Packages <i class="bi bi-chevron-down dropdown-arrow"></i>
+        </a>
+        <ul class="nav-dropdown">
+          <li><a href="bike-packages.html">Bike Packages</a></li>
+          <li><a href="car-packages.html" class="active">Car Packages</a></li>
+  
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<!-- ============ FULLSCREEN MENU OVERLAY ============ -->
+<div class="mega-menu" id="megaMenu">
+  <div class="mega-menu-inner">
+    <div class="mega-menu-left">
+      <img src="./images/img6.jpg" alt="" id="megaMenuImg" class="mega-menu-img show">
+    </div>
+    <div class="mega-menu-content">
+      <div class="mega-menu-right">
+        <ul class="mega-menu-list">
+      <li><a href="index.html" data-img="./images/img6.jpg" class="active">Home</a></li>
+          <li><a href="about.html" data-img="./images/img4.jpg">About</a></li>
+          <li><a href="packages.html" data-img="./images/img1.jpg">Packages</a></li>
+          <li><a href="stories.html" data-img="./images/img9.jpg">Strories</a></li>
+          <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
+          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-menu-info">
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Social</span>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+        <div class="mega-menu-info-block">
+          <span class="mega-info-label">Find Us</span>
+          <p class="mega-info-line">123, Mall Road, Civil Lines</p>
+          <p class="mega-info-line">Ludhiana, Punjab, India – 141001</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- ============ PAGE WRAP ============ -->
+<div class="page-wrap">
+
+<!-- ============ CAR PACKAGES HERO SECTION ============ -->
+
+
+<section class="page-header-clean">
+  <div class="container">
+
+    <div class="packages-heading" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+      <div class="heading-left">
+        <span class="packages-eyebrow">Trips</span>
+        <h1>Car <span class="heading-highlight">Packages</span></h1>
+      </div>
+      <div class="heading-right" >
+        <p class="para">Not one-size-fits-all routes. Real rides, from relaxed heritage trails to high-altitude Himalayan expeditions.</p>
+      </div>
+    </div>
+
+    <div class="page-header-clean-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="bi bi-slash-lg"></i>
+      <a href="bike-packages.html">Bike Packages</a>
+      <i class="bi bi-slash-lg"></i>
+      <span class="page-header-clean-current">Car Packages</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ CAR PACKAGES GRID SECTION ============ -->
+<section class="bike-packages-section">
+  <div class="container">
+
+    <div class="packages-grid packages-padding">
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img9.jpg" alt="Manali–Leh–Srinagar Car Road Trip" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Manali–Leh–Srinagar Car Road Trip</h3>
+          <div class="featured-desc">
+            <p class="para">A comfortable self-drive journey across three of the Himalayas' most dramatic mountain passes.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 11 Days 10 Nights</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹22,999</span>
+            </div>
+            <button class="package-cta" aria-label="Book Manali–Leh–Srinagar Car Road Trip">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img3.jpg" alt="Golden Triangle Car Tour" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Golden Triangle Car Tour – Delhi, Agra, Jaipur</h3>
+          <div class="featured-desc">
+            <p class="para">A private chauffeur-driven circuit through India's most iconic monuments.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 5 Days 4 Nights</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹14,999</span>
+            </div>
+            <button class="package-cta" aria-label="Book Golden Triangle Car Tour">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img10.jpg" alt="Jammu to Srinagar Scenic Drive" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Jammu to Srinagar Scenic Drive</h3>
+          <div class="featured-desc">
+            <p class="para">Cedar forests, cool hillside air and the winding road down into the valley.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 4 Days 3 Nights</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹9,999</span>
+            </div>
+            <button class="package-cta" aria-label="Book Jammu to Srinagar Scenic Drive">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img2.jpg" alt="Chandigarh & Punjab Countryside Drive" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Chandigarh &amp; Punjab Countryside Drive</h3>
+          <div class="featured-desc">
+            <p class="para">A quiet, scenic drive through gardens, forts and open countryside.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 2 Days 1 Night</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹6,499</span>
+            </div>
+            <button class="package-cta" aria-label="Book Chandigarh & Punjab Countryside Drive">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img8.jpg" alt="Ladakh Umling La Car Expedition" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Ladakh Umling La Car Expedition</h3>
+          <div class="featured-desc">
+            <p class="para">A fully-supported drive to one of the world's highest motorable roads.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 12 Days 8 Nights</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹24,999</span>
+            </div>
+            <button class="package-cta" aria-label="Book Ladakh Umling La Car Expedition">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img">
+          <img src="./images/img4.jpg" alt="Kasol Kheerganga Car Drive" onerror="this.src='https://placehold.co/500x400/1ea0fe/ffffff?text=Add+Photo'">
+        </div>
+        <div class="featured-body">
+          <h3 class="featured-title">Kasol &amp; Kheerganga Car Drive</h3>
+          <div class="featured-desc">
+            <p class="para">River-side villages, pine forests and hot springs at the end of the road.</p>
+          </div>
+          <div class="featured-duration"><i class="bi bi-calendar3"></i> 6 Days 5 Nights</div>
+          <div class="featured-footer">
+            <div>
+              <span class="price-label">Total Price</span>
+              <span class="price-value">₹13,499</span>
+            </div>
+            <button class="package-cta" aria-label="Book Kasol & Kheerganga Car Drive">
+              <span class="btn-text">Book Now</span>
+              <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-panel">
+    <div class="container">
+
+      <div class="footer-top">
+        <div class="footer-intro">
+          <p class="para footer-intro-text">Whether you're looking to plan a getaway, need custom route advice, or want to book a package — <span class="highlight">we're here to help</span>.</p>
+          <div class="footer-person">
+            <img src="./images/img2.jpg" class="footer-person-avatar" alt="Support person">
+            <div class="footer-person-info">
+              <span class="footer-person-name">Aditi Rao</span>
+              <span class="footer-person-role">Travel Success Manager</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3>Contact Us</h3>
+          <form class="footer-form" id="footerForm">
+            <div class="footer-form-row">
+              <input type="text" placeholder="Full Name *" required>
+              <input type="email" placeholder="E-mail *" required>
+            </div>
+            <div class="footer-form-row">
+              <input type="tel" placeholder="Phone Number *" required>
+            </div>
+            <textarea placeholder="Your Message" rows="3"></textarea>
+            <button type="submit" class="long-btn footer-submit-btn">
+              <span class="btn-text">Subscribe</span>
+              <span class="btn-arrow"><i class="bi bi-arrow-right"></i></span>
+            </button>
+          </form>
+          <p class="para footer-newsletter-note">Join our newsletter and stay updated on the latest travel deals and destinations.</p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-links-row">
+
+        <div class="footer-address">
+        <div class="footer-col footer-contact">
+          <span class="footer-col-label">Get In Touch</span>
+          <div class="footer-phone">(312) 555-2468</div>
+          <a href="mailto:hello@wanderland.com" class="footer-email">
+            <i class="bi bi-envelope"></i> hello@wanderland.com
+          </a>
+          <p class="para footer-address">123, Mall Road, Civil Lines, Ludhiana, Punjab, India – 141001</p>
+        </div>
+        </div>
+
+        <div class="footer-nav">
+        <div class="footer-col">
+          <span class="footer-col-label">Navigation</span>
+          <a href="index.html">Home</a>
+          <a href="#">About Me</a>
+          <a href="#">Cities</a>
+          <a href="#">Planning</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-label">Navigation</span>
+          <a href="index.html">Home</a>
+          <a href="#">About Me</a>
+          <a href="#">Cities</a>
+          <a href="#">Planning</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-col-label">Social</span>
+          <a href="#">Facebook <i class="bi bi-arrow-up-right"></i></a>
+          <a href="#">Instagram <i class="bi bi-arrow-up-right"></i></a>
+          <a href="#">YouTube <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        </div>
+
+      </div>
+
+      <div class="footer-logo">
+        <div class="footer-logo-blank"></div>
+      <div class="footer-logo-wrap">
+        <img src="images/logo/Full Logo Horizontal PNG.png" alt="WanderLand" class="footer-logo-img">
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 WanderLand. All rights reserved.</span>
+      <a href="" class="webpyrix">Developed By Webpyrix</a>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-wrap -->
+
+<style>
+
+
+/* ============ CAR PACKAGES GRID SECTION ============ */
+
+.bike-packages-section{
+    padding: 60px 0 150px;
+}
+
+.packages-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+@media (max-width: 1200px){
+    .bike-packages-section{
+        padding: 100px 0 120px;
+    }
+}
+
+@media (max-width: 992px){
+    .packages-grid{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px){
+    .bike-hero{
+        height: 46vh;
+        min-height: 340px;
+    }
+    .bike-packages-section{
+        padding: 70px 0 110px;
+    }
+    .packages-grid{
+        gap: 24px;
+    }
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./javascript/script.js"></script>
+
+</body>
+</html>

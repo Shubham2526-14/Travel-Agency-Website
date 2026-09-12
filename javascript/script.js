@@ -1,3 +1,9 @@
+
+
+
+
+
+
 // NAVBAR SCROLL 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -82,10 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="price-label">Total Price</span>
               <span class="price-value">₹${pkg.price}</span>
             </div>
-        <button class="package-cta" aria-label="Book ${pkg.title}">
+     <a href="package-detail.html">   <button class="package-cta" aria-label="Book ${pkg.title}">
   <span class="btn-text">Book Now</span>
   <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
-</button>
+</button> </a>
           </div>
         </div>
       </div>`;
@@ -129,13 +135,38 @@ document.addEventListener('DOMContentLoaded', function () {
     renderCards(packagesData[region] || []);
   }
 
-  filterButtons.forEach(function (btn) {
+const viewAllPackagesBtn = document.getElementById('viewAllPackagesBtn');
+
+const regionPageMap = {
+  bike: 'bike-packages.html',
+  car: 'car-packages.html'
+};
+
+function updateViewAllLink(region) {
+  if (viewAllPackagesBtn && regionPageMap[region]) {
+    viewAllPackagesBtn.setAttribute('data-href', regionPageMap[region]);
+  }
+}
+
+filterButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterButtons.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       renderRegion(btn.dataset.region);
+      updateViewAllLink(btn.dataset.region);
     });
   });
+
+updateViewAllLink('bike'); // default active tab on page load
+
+if (viewAllPackagesBtn) {
+  viewAllPackagesBtn.addEventListener('click', function () {
+    const target = viewAllPackagesBtn.getAttribute('data-href');
+    if (target) {
+      window.location.href = target;
+    }
+  });
+}
 
   if (carouselEl) {
     renderRegion('bike');
@@ -148,8 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { title: "Leh Ladakh Adventure with Stok Village Experience 2026", duration: "8 Days 7 Nights", img: "./images/img8.jpg", desc: "A slower-paced route through Thiksey and Hemis, ending with a homestay in Stok village.", price: "16,499" },
     { title: "Manali–Leh–Srinagar Adventure Tour | Ultimate Himalayan Road Journey", duration: "11 Days 10 Nights", img: "./images/img9.jpg", desc: "One continuous road trip across three of the Himalayas' most dramatic mountain passes.", price: "22,999" },
     { title: "Kangyatse Expedition (6400Mts)", duration: "13 Days 12 Nights", img: "./images/img10.jpg", desc: "A proper high-altitude climb for first-time mountaineers, guided every step to the summit.", price: "1,80,000" },
-    { title: "Motorbike Tour Ladakh (06 night / 07 Days)", duration: "7 Days 6 Nights", img: "./images/img11.jpg", desc: "A moto adventure covering the region's most iconic passes, valleys and monasteries.", price: "31,000" },
-    { title: "Leh Ladakh Adventure with Stok Village Experience 2026", duration: "6 Days 5 Nights", img: "./images/img6.jpg", desc: "A compact version of the classic Leh circuit, built for travelers short on time.", price: "13,999" }
+
   ];
 
   const featuredGrid = document.getElementById('featuredGrid');
@@ -494,6 +524,9 @@ if (footerForm) {
     footerForm.reset();
   });
 }
+
+
+
 
 
 

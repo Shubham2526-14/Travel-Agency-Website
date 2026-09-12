@@ -68,9 +68,11 @@
       </a>
 
       <div class="contact-wrap">
-        <a href="#contact" class="btn-contact">
-          <span class="btn-text">Contact Us</span>
-        </a>
+       <button class="btn-contact project-cta-btn">
+  
+  <span class="btn-text ">Contact Us</span>
+
+</button>
       </div>
     </div>
   </div>
@@ -81,15 +83,24 @@
 }
   </style>
 
+  <!-- second nav -->
+
   <nav class="main-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">About Me</a></li>
-      <li><a href="#">Cities</a></li>
-      <li><a href="#">City Guides</a></li>
-      <li><a href="#">Planning</a></li>
-      <li><a href="#">Stories</a></li>
-      <li><a href="#">Gallery</a></li>
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="package-detail.html" class="dropdown-trigger active" > 
+          Packages <i class="bi bi-chevron-down dropdown-arrow"></i>
+        </a>
+        <ul class="nav-dropdown">
+          <li><a href="bike-packages.html">Bike Packages</a></li>
+          <li><a href="car-packages.html">Car Packages</a></li>
+  
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
 </header>
@@ -106,12 +117,12 @@
     <div class="mega-menu-content">
       <div class="mega-menu-right">
         <ul class="mega-menu-list">
-          <li><a href="#" data-img="./images/img6.jpg" class="active">Home</a></li>
-          <li><a href="#" data-img="./images/img4.jpg">About Me</a></li>
-          <li><a href="#" data-img="./images/img1.jpg">Cities</a></li>
-          <li><a href="#" data-img="./images/img9.jpg">Planning</a></li>
-          <li><a href="#" data-img="./images/img5.jpg">Stories</a></li>
-          <li><a href="#" data-img="./images/img7.jpg">Gallery</a></li>
+          <li><a href="index.html" data-img="./images/img6.jpg" class="active">Home</a></li>
+          <li><a href="about.html" data-img="./images/img4.jpg">About</a></li>
+          <li><a href="packages.html" data-img="./images/img1.jpg">Packages</a></li>
+          <li><a href="stories.html" data-img="./images/img9.jpg">Strories</a></li>
+          <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
+          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
         </ul>
       </div>
       <div class="mega-menu-info">
@@ -145,8 +156,6 @@
       <li><a href="#dates" class="sub-nav-link">Dates &amp; Prices</a></li>
       <li><a href="#faq" class="sub-nav-link">FAQ</a></li>
     </ul>
-
-   
   </div>
 </nav>
 
@@ -159,6 +168,14 @@
     pointer-events: none;
 }
 
+.site-header.scrolled .top-bar{
+border-bottom: 1px solid rgb(0 0 0 / 16%);
+}
+.site-header.scrolled .contact-wrap{
+  border-left: 1px solid rgb(0 0 0 / 16%);
+
+
+}
 .sub-nav{
     position: fixed;
     top: 0;
@@ -181,8 +198,6 @@
     gap: 34px;
     padding: 16px 40px;
 }
-
-
 
 .sub-nav-list{
     display: flex;
@@ -230,43 +245,6 @@
 .sub-nav-link.active::after{
     width: 100%;
 }
-
-.sub-nav-btn{
-    flex-shrink: 0;
-    white-space: nowrap;
-    width: auto;
-    margin-bottom: 0;
-    background: none;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-}
-
-.sub-nav-btn .btn-text{
-    color: var(--primary);
-}
-
-.sub-nav-btn:hover{
-    color: var(--white);
-}
-
-.sub-nav-btn:hover .btn-text{
-    color: var(--white);
-}
-
-@media (max-width: 992px){
-    .sub-nav.show{
-        transform: translateY(60px);
-    }
-    .sub-nav-inner{
-        padding: 14px 20px;
-    }
-    .sub-nav-list{
-        gap: 22px;
-    }
-    .sub-nav-btn{
-        display: none;
-    }
-}
 </style>
 
 
@@ -278,7 +256,7 @@
 <section class="project-detail-section" id="overview">
   <div class="container">
 
-    <h3 class="project-title">Japan Highlights</h3>
+    <h1 class="project-title">Japan Highlights</h1>
 
     <div class="project-layout">
 
@@ -384,12 +362,11 @@
     /* ============ PROJECT DETAIL SECTION ============ */
 
 .project-detail-section{
-    padding-top: 160px
+    padding-top: 180px;
 }
 
 .project-title{
-    font-size: clamp(32px, 4.2vw, 20px);
-    /* font-weight: 600; */
+    font-size: clamp(26px, 3.6vw, 38px);
     margin-bottom: 30px;
 }
 
@@ -557,12 +534,12 @@
 .project-cta-btn{
     width: 100%;
     justify-content: center;
-    margin-bottom: 18px;
 }
 
 .project-info-footer{
     display: flex;
     justify-content: center;
+    margin-top: 18px;
 }
 
 .project-share{
@@ -592,15 +569,9 @@
     width: 110px;
   }
 
-
-
-
-
-
 /* ============ TRIP DESCRIPTION ============ */
 
 .project-description{
-
     max-width: 900px;
 }
 
@@ -609,8 +580,6 @@
     line-height: 1.3;
     margin-bottom: 8px;
 }
-
-
 
 .description-extra{
     max-height: 0;
@@ -660,35 +629,6 @@
 .read-more-btn.open .btn-arrow-down{
     transform: rotate(180deg);
 }
-
-
-
-
-@media (max-width: 992px){
-    .project-layout{
-        grid-template-columns: 1fr;
-    }
-    .project-info-box{
-        position: static;
-    }
-}
-
-@media (max-width: 576px){
-    .project-detail-section{
-        padding: 110px 0 60px;
-    }
-    .project-thumbs{
-        gap: 10px;
-    }
-    .price-amount{
-        font-size: 24px;
-    }
-    .project-info-grid{
-        gap: 14px;
-    }
-}
-
-    
 </style>
 
 
@@ -723,7 +663,7 @@
           </button>
           <div class="faq-answer">
             <div class="itinerary-answer-inner">
-              <p class="para" style="padding: 0;">Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.</p>
+              <p class="para" style="padding: 0;">Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku's Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo's local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.</p>
                <div class="itinerary-activities">
                 <h4><i class="bi bi-check2-circle"></i> Included activities</h4>
                 <ul>
@@ -986,7 +926,7 @@
           </button>
           <div class="faq-answer">
             <div class="itinerary-answer-inner">
-              <p class="para">The trip comes to an end after breakfast, with no further activities planned — feel free to extend your stay and keep exploring Osaka Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers.Konnichiwa! Welcome to Japan. Your adventure starts with a welcome meeting at 6 pm tonight in Tokyo. Bursting with contemporary urban culture, Tokyo has fascinating museums, world-class shopping and backstreets stuffed with restaurants and karaoke bars. If you arrive early, maybe check out an Urban Adventure Tour in Tokyo or walk down Shinjuku’s Omoide Tokocho (Memory Lane) – a crowded alley of busy restaurants and bar stalls that's now one of the best spots to try some of Tokyo’s local fast food. After your meeting, follow your leader on an orientation walk to familiarize yourself with the neighborhood and surroundings near the hotel , then maybe head out for dinner and get to know your fellow travellers..</p>
+              <p class="para">The trip comes to an end after breakfast, with no further activities planned — feel free to extend your stay and keep exploring Osaka.</p>
                   <div class="itinerary-activities">
                 <h4><i class="bi bi-check2-circle"></i> Included activities</h4>
                 <ul>
@@ -1036,15 +976,13 @@
     border-radius: var(--card-radius);
     overflow: hidden;
     box-shadow: 0 12px 34px rgba(20,30,40,.1);
-   height: 450px;
+    height: 450px;
 }
- .ladakh-map{
-          height: 100%;
 
-        width: 100%;
-        }
-
-
+.itinerary-map iframe{
+    width: 100%;
+    height: 100%;
+}
 
 .itinerary-answer-inner{
     padding: 0 20px 24px;
@@ -1057,7 +995,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-
 }
 
 .itinerary-meta h4,
@@ -1105,39 +1042,10 @@
     background: var(--primary);
 }
 
-
 .packages-heading {
   border-bottom: none;
   margin-bottom: 0;
 }
-
-
-
-
-@media (max-width: 992px){
-    .itinerary-layout{
-        grid-template-columns: 1fr;
-    }
-    .itinerary-map{
-        position: static;
-      
-    }
-}
-
-@media (max-width: 576px){
-    .itinerary-section{
-        padding: 60px 0 110px;
-    }
-    .itinerary-answer-inner{
-        padding: 0 20px 20px;
-    }
-    .itinerary-meta{
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-}
-
-
 </style>
 
 
@@ -1212,38 +1120,30 @@
     padding: 0 0 150px;
 }
 
-.ie-title{
-    font-size: clamp(28px, 3.4vw, 40px);
-    font-weight: 600;
-    margin-bottom: 30px;
-}
-
 .ie-columns{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-items: start;
 }
+
 .icludes-heading{
   padding: 30px 26px;
-  /* background-color: var(--section-color); */
-
-  border-top-left-radius:20px ;
-   border-top-right-radius:20px ;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
+
 .icludes-point{
   padding: 0px 26px;
   margin: 15px 0px;
 }
+
 .ie-box{
     background: var(--white);
     border-radius: var(--card-radius);
-
-  
     box-shadow: 0 12px 34px rgba(20,30,40,.08);
     transition: transform .3s cubic-bezier(.22,.8,.32,1),
-                box-shadow .3s ease,
-                border-color .3s ease;
+                box-shadow .3s ease;
 }
 
 .ie-box:hover{
@@ -1254,7 +1154,6 @@
 .ie-col-title{
     font-size: 24px;
     font-weight: 600;
-
 }
 
 .ie-list{
@@ -1275,8 +1174,6 @@
     transition: background .25s ease, transform .25s ease;
 }
 
-
-
 .ie-list i{
     flex-shrink: 0;
     font-size: 17px;
@@ -1290,29 +1187,6 @@
 .ie-excludes i{
     color: #e6483c;
 }
-
-@media (max-width: 768px){
-    .ie-columns{
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    .ie-box{
-        padding: 30px 26px;
-    }
-}
-
-@media (max-width: 576px){
-    .ie-section{
-        padding: 0 0 110px;
-    }
-    .ie-box{
-        padding: 26px 20px;
-    }
-    .ie-col-title{
-        font-size: 20px;
-    }
-}
-
 </style>
 
 
@@ -1609,7 +1483,7 @@
 }
 
 .doc-item{
-    background: #f0f4f566;;
+    background: #f0f4f566;
     border: 1px solid #e6eaea;
     border-radius: 14px;
     overflow: hidden;
@@ -1632,7 +1506,6 @@
     padding: 16px 20px;
     font-family: inherit;
     font-size: 14px;
-
     color: var(--heading);
     cursor: pointer;
 }
@@ -1651,7 +1524,9 @@
     transition: transform .25s ease, background .25s ease, color .25s ease;
 }
 
-
+.doc-item.active .doc-icon{
+    transform: rotate(90deg);
+}
 
 .doc-answer{
     max-height: 0;
@@ -1677,39 +1552,6 @@
 
 .doc-final-note strong{
     color: var(--heading);
-}
-
-@media (max-width: 768px){
-    .doc-banner{
-        padding: 30px 26px;
-    }
-    .doc-body{
-        padding: 30px 26px;
-    }
-}
-
-@media (max-width: 576px){
-    .doc-section{
-        padding: 0 0 110px;
-    }
-    .doc-banner{
-        padding: 26px 20px;
-        gap: 14px;
-    }
-    .doc-banner-icon{
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
-    }
-    .doc-banner-title{
-        font-size: 18px;
-    }
-    .doc-body{
-        padding: 26px 20px;
-    }
-    .doc-answer-inner{
-        padding-left: 20px;
-    }
 }
 </style>
 
@@ -2130,7 +1972,6 @@
 }
 
 .date-item{
-    /* background: var(--section-color); */
     border: 1px solid #c4c6c6;
     border-radius: 10px;
     overflow: hidden;
@@ -2181,7 +2022,6 @@
 
 .date-label{
     font-size: 11px;
-
     letter-spacing: .6px;
     text-transform: uppercase;
     color: var(--para);
@@ -2190,7 +2030,6 @@
 .date-value{
     font-size: 15px;
     font-weight: 500;
-
     color: var(--heading);
 }
 
@@ -2220,7 +2059,6 @@
     font-size: 14px;
     transition: background .25s ease, color .25s ease, transform .25s ease;
 }
-
 
 .date-item.active .date-toggle{
     background: var(--primary);
@@ -2433,7 +2271,7 @@
 
 .date-customize i{
     color: var(--primary);
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .date-customize span{
@@ -2635,56 +2473,14 @@
     font-weight: 600;
     margin-bottom: 10px;
 }
-
-@media (max-width: 992px){
-    .date-answer-inner{
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px){
-    .date-question{
-        padding: 20px;
-    }
-    .date-question-dates{
-        gap: 30px;
-    }
-    .date-answer-inner{
-        margin: 0 20px;
-        padding: 22px 0 26px;
-    }
-    .booking-modal-box{
-        padding: 28px 24px 30px;
-    }
-}
-
-@media (max-width: 576px){
-    .date-question{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .date-question-price{
-        width: 100%;
-        justify-content: space-between;
-    }
-    .booking-form-row{
-        grid-template-columns: 1fr;
-    }
-    .date-customize{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-  }
 </style>
 
 
 
 
 
-<!-- ============ BY THE NUMBERS SECTION ============ -->
 <!-- ============ ACCLIMATISATION & PRECAUTIONS SECTION ============ -->
-<section class="numbers-section">
+<section class="numbers-section" style="  background:var(--section-color2)">
   <div class="container">
 
     <div class="numbers-box">
@@ -2726,17 +2522,16 @@
 <style>
   /* ============ ACCLIMATISATION & PRECAUTIONS SECTION ============ */
 
-
 .numbers-box{
-    background-color: rgba(30,160,254,.08);
+
     border-radius: 70px;
     padding: 100px 60px;
     text-align: center;
     overflow: hidden;
+
 }
 
 .numbers-text{
-
     max-width: 950px;
     margin: 0 auto;
 }
@@ -2750,7 +2545,7 @@
 }
 
 .numbers-card{
-    background: var(--white);
+    background: var(--para2);
     border-radius: 20px;
     padding: 26px 22px;
     box-shadow: 0 12px 30px rgba(20,30,40,.08);
@@ -2764,7 +2559,6 @@
 
 .numbers-card h4{
     font-size: 16px;
-  
     margin-bottom: 10px;
     color: var(--heading);
 }
@@ -2773,35 +2567,6 @@
     font-size: 13px;
     line-height: 1.6;
     color: var(--para);
-}
-
-@media (max-width: 992px){
-    .numbers-cards{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px){
-    .numbers-section{
-        padding-top: 60px;
-    }
-    .numbers-box{
-        padding: 50px 30px;
-        border-radius: 30px;
-    }
-}
-
-@media (max-width: 576px){
-    .numbers-box{
-        padding: 40px 22px;
-        border-radius: 24px;
-    }
-
-    .numbers-cards{
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 30px;
-    }
 }
 </style>
 
@@ -2895,29 +2660,11 @@
 
 .page-faq-section{
     padding: 150px 0px;
-    
 }
 
-.page-faq-title{
-    text-align: center;
-    font-size: clamp(28px, 3.6vw, 42px);
-    font-weight: 600;
-    margin-bottom: 44px;
-}
 .page-faq-list{
     max-width: 1000px;
     margin: 0 auto;
-}
-
-
-
-@media (max-width: 576px){
-    .page-faq-section{
-        padding: 0 0 110px;
-    }
-    .page-faq-title{
-        margin-bottom: 30px;
-    }
 }
 </style>
 
@@ -3034,7 +2781,188 @@
 </div><!-- /page-wrap -->
 
 
+<!-- ============================================================
+     RESPONSIVE STYLES — every breakpoint written ONCE below.
+     All sections that need a change at a given width sit together
+     inside that single @media block, same px values as index.html
+     (1200 / 1080 / 992 / 768 / 576 / 480).
+     ============================================================ -->
+<style>
 
+@media (max-width: 1200px){
+
+    .project-main-img{ height: 430px; }
+
+    .itinerary-section{ padding: 120px 0px; }
+
+    .ie-section{ padding: 0 0 120px; }
+
+    .doc-section{ padding: 80px 0px 60px 0px; }
+
+    .dates-section{ padding: 120px 0px; }
+
+    .numbers-box{ padding: 80px 50px; }
+
+    .page-faq-section{ padding: 120px 0px; }
+}
+
+@media (max-width: 1080px){
+   
+    .project-layout{ grid-template-columns: 1fr 340px; gap: 30px; }
+    .project-main-img{ height: 400px; }
+
+
+    .itinerary-layout{ grid-template-columns: 420px 1fr; gap: 40px; }
+    .itinerary-map{ height: 400px; }
+
+    .ie-columns{ gap: 24px; }
+
+
+    .doc-banner{ padding: 34px 40px; }
+    .doc-body{ padding: 34px 40px; }
+
+
+    .date-answer-inner{ grid-template-columns: 220px 1fr; gap: 34px; }
+
+    .numbers-box{ padding: 70px 40px; border-radius: 50px; }
+
+   
+    .packages-heading {
+      padding-bottom: 26px;
+    }
+
+}
+
+@media (max-width: 992px){
+   
+    .project-layout{ grid-template-columns: 1fr; gap: 30px; }
+    .project-info-box{ position: static; }
+    .project-main-img{ height: 380px; }
+
+    .itinerary-layout{ grid-template-columns: 1fr; }
+    .itinerary-map{ position: static; height: 370px; }
+
+
+
+
+
+    .date-answer-inner{ grid-template-columns: 1fr; gap: 30px; }
+
+    .numbers-box{ padding: 50px 30px; border-radius: 40px; }
+    .numbers-cards{ grid-template-columns: repeat(2, 1fr); }
+
+  
+
+    .sub-nav.show{ transform: translateY(60px); }
+    .sub-nav-inner{ padding: 14px 20px; }
+    .sub-nav-list{ gap: 22px; }
+}
+
+@media (max-width: 768px){
+    .project-detail-section{ padding-top: 110px; }
+    .project-main-img{ height: 320px; }
+    .project-thumbs{ gap: 10px; }
+
+    .itinerary-map{ height: 330px; }
+
+    .ie-columns{ grid-template-columns: 1fr; gap: 24px; }
+    .icludes-heading{ padding: 26px 22px; }
+    .icludes-point{ padding: 0px 22px; }
+
+    .doc-banner{ padding: 30px 26px; }
+    .doc-body{ padding: 30px 26px; }
+
+
+    .date-question{ padding: 20px; }
+
+    .date-answer-inner{ margin: 0 20px; padding: 22px 0 26px; }
+    .booking-modal-box{ padding: 28px 24px 30px; }
+}
+
+@media (max-width: 576px){
+    .project-detail-section{ padding-top: 100px; }
+    /* .project-main-img{ height: 260px; } */
+        .description-title{ font-size: 17px; }
+    .project-thumbs{ gap: 8px; }
+    .price-amount{ font-size: 24px; }
+    .project-info-grid{ gap: 14px; }
+
+    .itinerary-section{ padding: 110px 0;}
+
+    .itinerary-answer-inner{ padding: 0 20px 20px; }
+    .itinerary-meta{ grid-template-columns: 1fr; gap: 16px; }
+
+    .ie-section{ padding: 0 0 110px; }
+    .ie-col-title{ font-size: 20px; }
+
+
+    .doc-banner{ padding: 26px 20px; gap: 14px; }
+    .doc-banner-icon{ width: 44px; height: 44px; font-size: 18px; }
+    .doc-banner-title{ font-size: 18px; }
+    .doc-body{ padding: 26px 20px; }
+    .doc-answer-inner{ padding-left: 20px; }
+
+    .dates-section{ padding: 110px 0px; }
+    .date-question{ flex-direction: column; align-items: flex-start; }
+    .date-question-price{ width: 100%; justify-content: space-between; }
+    .date-price{ font-size: 20px; }
+    .booking-form-row{ grid-template-columns: 1fr; }
+    .date-customize{ flex-direction: column; align-items: flex-start; }
+
+    .numbers-box{ padding: 40px 22px; border-radius: 24px; }
+    .numbers-cards{ grid-template-columns: 1fr; gap: 16px; margin-top: 30px; }
+
+    .page-faq-section{ padding: 110px 0px; }
+
+    .sub-nav-inner{ padding: 12px 16px; }
+    .sub-nav-list{ gap: 16px; }
+    .sub-nav-link{ font-size: 12px; }
+    .ie-list {
+      gap: 7px;
+    }
+    .booking-submit-btn {
+      padding: 13px;
+      font-size: 13px;
+    }
+    .date-question-dates {
+      gap: 30px;
+    }
+
+
+
+}
+
+@media (max-width: 480px){
+    .project-detail-section{ padding-top: 90px; }
+    /* .project-main-img{ height: 220px; } */
+    .project-info-box{ padding: 24px 20px; }
+    .price-amount{ font-size: 20px; }
+
+
+
+    .icludes-heading{ padding: 22px 18px; }
+    .icludes-point{ padding: 0px 18px; margin: 12px 0px; }
+
+    .doc-banner{ padding: 22px 16px; }
+    .doc-body{ padding: 22px 16px; }
+    .doc-question{ padding: 14px 16px; font-size: 13px; }
+
+ 
+    .date-question{ padding: 18px; }
+
+    .accom-price{ font-size: 18px; }
+    .booking-modal-box{ padding: 24px 18px 24px; }
+
+    .numbers-box{ padding: 40px 18px; border-radius: 20px; }
+    .numbers-card{ padding: 20px 18px; }
+
+
+        .doc-section {
+        padding: 70px 0px 55px 0px;
+    }
+}
+
+</style>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -3136,7 +3064,7 @@ if (readMoreBtn && descriptionExtra) {
   });
 }
 
-// SHARED ACCORDION (FAQ + ITINERARY)
+// SHARED ACCORDION (ITINERARY + PAGE FAQ)
 
 function initAccordion(listId) {
   const items = document.querySelectorAll('#' + listId + ' .faq-item');
@@ -3181,9 +3109,44 @@ function initAccordion(listId) {
   });
 }
 
-initAccordion('faqList');
 initAccordion('itineraryList');
 initAccordion('pageFaqList');
+
+// DOCUMENTS REQUIRED ACCORDION
+
+function initDocAccordion(listId) {
+  const items = document.querySelectorAll('#' + listId + ' .doc-item');
+
+  items.forEach(function (item) {
+    const question = item.querySelector('.doc-question');
+    const answer = item.querySelector('.doc-answer');
+
+    question.addEventListener('click', function () {
+      const isActive = item.classList.contains('active');
+
+      items.forEach(function (other) {
+        other.classList.remove('active');
+        other.querySelector('.doc-answer').style.maxHeight = null;
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    const openItem = document.querySelector('#' + listId + ' .doc-item.active');
+    if (openItem) {
+      const openAnswer = openItem.querySelector('.doc-answer');
+      openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
+    }
+  });
+}
+
+initDocAccordion('docListForeign');
+initDocAccordion('docListIndian');
 
 
 

@@ -46,28 +46,41 @@
       </a>
 
       <div class="contact-wrap">
+        <a href="contact.html">
 <button class="btn-contact project-cta-btn">
   
   <span class="btn-text ">Contact Us</span>
 
-</button>
+</button> 
+</a>
 </div>
 
     </div>
   </div>
 
+
+
   <!-- Second nav: main menu -->
   <nav class="main-nav">
     <ul>
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="package-detail.html">Package</a></li>
-      <li><a href="#">City Guides</a></li>
-      <li><a href="#">Planning</a></li>
-      <li><a href="#">Stories</a></li>
-      <li><a href="#">Gallery</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-dropdown">
+        <a href="package-detail.html" class="dropdown-trigger">
+          Packages <i class="bi bi-chevron-down dropdown-arrow"></i>
+        </a>
+        <ul class="nav-dropdown">
+          <li><a href="bike-packages.html">Bike Packages</a></li>
+          <li><a href="car-packages.html">Car Packages</a></li>
+  
+        </ul>
+      </li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
+
+
 
 </header>
 
@@ -80,12 +93,12 @@
     <div class="mega-menu-content">
       <div class="mega-menu-right">
         <ul class="mega-menu-list">
-          <li><a href="#" data-img="./images/img6.jpg" class="active">Home</a></li>
-          <li><a href="#" data-img="./images/img4.jpg">About Me</a></li>
-          <li><a href="#" data-img="./images/img1.jpg">Cities</a></li>
-          <li><a href="#" data-img="./images/img9.jpg">Planning</a></li>
-          <li><a href="#" data-img="./images/img5.jpg">Stories</a></li>
-          <li><a href="#" data-img="./images/img7.jpg">Gallery</a></li>
+          <li><a href="index.html" data-img="./images/img6.jpg" class="active">Home</a></li>
+          <li><a href="about.html" data-img="./images/img4.jpg">About</a></li>
+          <li><a href="packages.html" data-img="./images/img1.jpg">Packages</a></li>
+          <li><a href="stories.html" data-img="./images/img9.jpg">Strories</a></li>
+          <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
+          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
         </ul>
       </div>
 
@@ -130,7 +143,7 @@
   <div class="container ">
 
     <div class="packages-heading">
-      <div class="heading-left">
+      <div class="heading-left" >
         <span class="packages-eyebrow">Curated Journeys</span>
         <h2>Explore Our <span class="heading-highlight">Packages</span></h2>
       </div>
@@ -152,8 +165,8 @@
       <div class="owl-carousel packages-carousel" id="packagesCarousel"></div>
     </div>
 
-    <div class="packages-bottom-action btn-padding">
-    <button class="long-btn">
+<div class="packages-bottom-action btn-padding">
+    <button class="long-btn" id="viewAllPackagesBtn" data-href="bike-packages.html">
         <span class="btn-text">View All Packages</span>
         <span class="btn-arrow">
             <i class="bi bi-arrow-right"></i>
@@ -169,22 +182,22 @@
   <div class="container">
 
     <div class="about-stats">
-      <div class="stat-card">
+      <div class="stat-card" >
         <h3>21,24,000</h3>
         <span>Kilometers</span>
         <p class="para">passed by our travelers</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" >
         <h3>8,200</h3>
         <span>Travelers</span>
         <p class="para">participated in our tours</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" >
         <h3>345</h3>
         <span>Positive Feedback</span>
         <p class="para">for all years of the company</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" >
         <h3>14</h3>
         <span>Years of Work</span>
         <p class="para">for your wonderful experiences</p>
@@ -219,12 +232,14 @@
   <div class="container">
 
     <div class="packages-heading">
-      <div class="heading-left">
-        <span class="packages-eyebrow">Hand-Picked For You</span>
-        <h2>Featured <span class="heading-highlight">Expeditions</span></h2>
+      <div class="heading-left" >
+        <span class="packages-eyebrow" style="color: var(--white);">Hand-Picked For You</span>
+        <h2 style="color: var(--white);">Featured <span class="heading-highlight" style="color: var(--white);">Expeditions</span></h2>
       </div>
       <div class="heading-right">
-        <p class="para">The tours our travelers keep coming back for — a closer look at each one, side by side with the story behind it.</p>
+        <p class="para" style="color: var(--footer-text);">
+          The tours our travelers keep coming back for — a closer look at each one, side by side with the story behind it.
+        </p>
       </div>
     </div>
 
