@@ -116,14 +116,24 @@
     </div>
     <div class="mega-menu-content">
       <div class="mega-menu-right">
-        <ul class="mega-menu-list">
-          <li><a href="index.html" data-img="./images/img6.jpg" class="active">Home</a></li>
-          <li><a href="about.html" data-img="./images/img4.jpg">About</a></li>
-          <li><a href="packages.html" data-img="./images/img1.jpg">Packages</a></li>
-          <li><a href="stories.html" data-img="./images/img9.jpg">Strories</a></li>
-          <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
-          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
-        </ul>
+    <ul class="mega-menu-list">
+  <li><a href="index.html" data-img="./images/img6.jpg" >Home</a></li>
+  <li><a href="about.html" data-img="./images/img4.jpg">About</a></li>
+
+  <li class="mega-has-sub">
+    <a href="#" class="mega-sub-trigger active" data-img="./images/img1.jpg">
+      Packages <i class="bi bi-chevron-down mega-sub-arrow"></i>
+    </a>
+    <ul class="mega-sub-list">
+      <li><a href="bike-packages.html" data-img="./images/img1.jpg">Bike Packages</a></li>
+      <li><a href="car-packages.html" data-img="./images/img3.jpg">Car Packages</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#" data-img="./images/img9.jpg">Stories</a></li>
+  <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
+  <li><a href="contact.html" data-img="./images/img7.jpg">Contact Us</a></li>
+</ul>
       </div>
       <div class="mega-menu-info">
         <div class="mega-menu-info-block">
@@ -2485,7 +2495,7 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 
     <div class="numbers-box">
       <div class="packages-heading" style="grid-template-columns:none;">
-        <h2>Acclimatisation<span class="heading-highlight"> &amp; Precautions</span></h2>
+        <h2 style=" color: var(--white);">Acclimatisation<span class="heading-highlight" style="color: var(--primary);"> &amp; Precautions</span></h2>
       </div>
 
       <p class="numbers-text para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempora, eveniet voluptate cumque dignissimos perferendis cupiditate, quia hic doloribus aliquam nobis alias, explicabo libero enim ipsam autem tenetur ipsum! A!
@@ -2534,6 +2544,7 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 .numbers-text{
     max-width: 950px;
     margin: 0 auto;
+    color: var(--footer-text);
 }
 
 .numbers-cards{
@@ -2545,7 +2556,7 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 }
 
 .numbers-card{
-    background: var(--para2);
+    background: #eaf6ff;
     border-radius: 20px;
     padding: 26px 22px;
     box-shadow: 0 12px 30px rgba(20,30,40,.08);
@@ -2933,7 +2944,7 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 }
 
 @media (max-width: 480px){
-    .project-detail-section{ padding-top: 90px; }
+
     /* .project-main-img{ height: 220px; } */
     .project-info-box{ padding: 24px 20px; }
     .price-amount{ font-size: 20px; }

@@ -89,14 +89,24 @@
     </div>
     <div class="mega-menu-content">
       <div class="mega-menu-right">
-        <ul class="mega-menu-list">
-          <li><a href="index.html" data-img="./images/img6.jpg">Home</a></li>
-          <li><a href="about.html" data-img="./images/img4.jpg" class="active">About</a></li>
-          <li><a href="package-detail.html" data-img="./images/img1.jpg">Packages</a></li>
-          <li><a href="#" data-img="./images/img9.jpg">Stories</a></li>
-          <li><a href="#" data-img="./images/img5.jpg">Gallery</a></li>
-          <li><a href="contact.html" data-img="./images/img7.jpg">Contact</a></li>
-        </ul>
+     <ul class="mega-menu-list">
+  <li><a href="index.html" data-img="./images/img6.jpg" >Home</a></li>
+  <li><a href="about.html" data-img="./images/img4.jpg" class="active">About</a></li>
+
+  <li class="mega-has-sub">
+    <a href="#" class="mega-sub-trigger" data-img="./images/img1.jpg">
+      Packages <i class="bi bi-chevron-down mega-sub-arrow"></i>
+    </a>
+    <ul class="mega-sub-list">
+      <li><a href="bike-packages.html" data-img="./images/img1.jpg">Bike Packages</a></li>
+      <li><a href="car-packages.html" data-img="./images/img3.jpg">Car Packages</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#" data-img="./images/img9.jpg">Stories</a></li>
+  <li><a href="gallery.html" data-img="./images/img5.jpg">Gallery</a></li>
+  <li><a href="contact.html" data-img="./images/img7.jpg">Contact Us</a></li>
+</ul>
       </div>
 
       <div class="mega-menu-info">
@@ -151,8 +161,11 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
 
   <style>
     /* ============ 1. ABOUT HERO SECTION STYLES ============ */
+
+   
+
     .about-hero-section {
-        padding: 180px 0 50px;
+        padding: 180px 0 0px;
         text-align: center;
     }
 
@@ -223,7 +236,7 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
 
       <!-- Reusable Heading (Same class) -->
       <div class="section-heading-center" style="margin-bottom: 14px;">
-        <span class="packages-eyebrow">Our Journey</span>
+        <span class="packages-eyebrow" style="color: var(--primary);">Our Journey</span>
         <!-- <h2>
           A journey built on <span class="heading-highlight">people and progress</span>
         </h2>
@@ -342,8 +355,9 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
         /* background-color: var(--white); */
         position: relative;
         overflow: hidden;
-        /* background-color: var(--section-color); */
-        border-radius: 80px;
+        background-color: var(--footer-color);
+        padding: 50px 0px 70px;
+   
     }
 
   
@@ -419,7 +433,7 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
     .journey-row.active .journey-dot {
         opacity: 1;
         background:var(--heading);
-        border: 3px solid var(--section-color);
+        border: 3px solid var(--white);
         /* box-shadow: 0 0 0 2px #1a1a1a, 0 4px 12px rgba(0, 0, 0, 0.25); */
         transform: scale(1.25);
     }
@@ -433,6 +447,7 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
         line-height: 1.15;
         margin-bottom: 12px;
         letter-spacing: -0.5px;
+        color: var(--white);
     }
 
     .journey-desc {
@@ -450,6 +465,7 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
     .journey-side-left .journey-desc {
         margin-left: auto;
         max-width: 440px;
+        color: var(--footer-text);
     }
 
     /* Desktop Right side */
@@ -461,6 +477,7 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
     .journey-side-right .journey-desc {
         margin-right: auto;
         max-width: 440px;
+        color:var(--footer-text);
     }
 
   
@@ -601,35 +618,46 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
 
 
 
-
 <style>
-
   /* ============================================================
-   RESPONSIVE — ALL SECTIONS (About Hero + Journey Timeline + CEO)
+   RESPONSIVE — ALL SECTIONS (About Hero + Journey Timeline + CEO + Footer)
    ============================================================ */
+@media (max-width: 1200px) {
+  .ceo-section {
+    padding: 120px 0px;
+  }
 
+
+}
 @media (max-width: 992px) {
   /* About Hero */
-  .about-hero-section { padding: 130px 0 90px; }
+
   .about-hero-image-card { height: 420px; }
 
   /* Journey Timeline */
-  .journey-timeline-section { padding: 90px 0 120px; }
+
   .journey-row { margin-bottom: 65px; }
 
   /* CEO / Founder */
   .ceo-layout { grid-template-columns: 380px 1fr; gap: 40px; }
   .ceo-img { height: 460px; }
   .ceo-stats { gap: 40px; }
+
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-links-row { grid-template-columns: 1fr; gap: 40px; }
+  .footer-nav { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 }
 
 @media (max-width: 767px) {
   /* About Hero */
-  .about-hero-section { padding: 100px 0 70px; }
+
   .about-hero-image-card { height: 320px; }
+    .about-hero-section { padding: 110px 0 0px; }
 
   /* Journey Timeline */
-  .journey-timeline-section { padding: 70px 0 90px; }
+
   .journey-timeline-body { padding: 10px 15px 30px 42px; }
 
   .journey-line-track {
@@ -692,35 +720,59 @@ Ad praesentium excepturi fugit, architecto eius, incidunt eaque vero quo, ration
   .journey-desc { font-size: 13.5px; line-height: 1.6; color: var(--para); }
 
   /* CEO / Founder */
-  .ceo-section { padding: 0 0 90px; }
+ 
   .ceo-layout {
     grid-template-columns: 1fr;
     gap: 30px;
     text-align: center;
   }
   .ceo-img {
-    max-width: 300px;
-    height: 300px;
-    margin: 0 auto;
+
+    height: 100%;
+ 
   }
   .ceo-text { margin: 0 auto 34px; }
   .ceo-stats { justify-content: center; }
+
+  /* Footer */
+  .footer-person { flex-wrap: wrap; }
+  .footer-form-row { grid-template-columns: 1fr; }
+  .footer-nav { grid-template-columns: 1fr 1fr; }
+  .footer-logo { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-bottom-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .ceo-content{
+    padding: 0px 20px 40px 20px;
+  }
 }
 
 @media (max-width: 576px) {
+    .ceo-section {
+    padding: 90px 0px 110px;
+  }
   /* About Hero */
-  .about-hero-section { padding: 90px 0 60px; }
-  .about-hero-image-card { height: 240px; }
+  .about-hero-section { padding: 100px 0 0px; }
+
 
   /* Journey Timeline */
-  .journey-timeline-body { padding: 10px 12px 24px 36px; }
+  .journey-timeline-body { padding: 10px 12px 24px 34px; }
   .journey-line-track { left: 14px; }
   .journey-center-col { left: -26px; }
 
   /* CEO / Founder */
-  .ceo-img { max-width: 240px; height: 240px; }
+
   .ceo-stats { gap: 28px; }
   .ceo-stat-num { font-size: 26px; }
+
+  /* Footer */
+  .footer-nav { grid-template-columns: 1fr; }
+  .footer-form-row input { font-size: 13px; }
+      .about-hero-image-card {
+        height: 270px;
+      }
 }
 </style>
 

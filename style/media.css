@@ -242,6 +242,11 @@
         }
 
 
+           .page-header-clean{
+        padding: 110px 0 40px;
+    }
+
+
    
    
 
@@ -396,6 +401,14 @@ font-size: 28px;
                     height: 34px;
                     width: 34px;
                 }
+
+                  .page-header-clean{
+        padding: 100px 0 40px;
+    }
+    .page-header-clean-breadcrumb{
+        font-size: 11px;
+        flex-wrap: wrap;
+    }
                 
 
 
