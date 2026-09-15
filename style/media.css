@@ -430,7 +430,7 @@ font-size: 28px;
 
 @media (max-width: 480px){
 
-    .logo img{ width: 1px; }
+    .logo img{ width: 120px; }
   
     .btn-contact .btn-text{
         white-space: nowrap;

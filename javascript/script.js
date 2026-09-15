@@ -345,31 +345,37 @@ document.addEventListener('DOMContentLoaded', function () {
   const megaMenuLinks = document.querySelectorAll('.mega-menu-list a');
   const megaMenuImg = document.getElementById('megaMenuImg');
 
-  megaMenuLinks.forEach(function (link) {
-    // Mouse hover pe mega-menu ki background image fade karke badalta hai
-    link.addEventListener('mouseenter', function () {
-      const newSrc = link.dataset.img;
-      if (!newSrc) return;
+megaMenuLinks.forEach(function (link) {
+  link.addEventListener('mouseenter', function () {
+    const newSrc = link.dataset.img;
+    if (!newSrc) return;
 
-      megaMenuLinks.forEach(function (l) { l.classList.remove('active'); });
-      link.classList.add('active');
+    megaMenuLinks.forEach(function (l) { l.classList.remove('active'); });
+    link.classList.add('active');
 
-      if (megaMenuImg.getAttribute('src') === newSrc) return;
+    if (megaMenuImg.getAttribute('src') === newSrc) return;
 
-      megaMenuImg.classList.remove('show');
-      setTimeout(function () {
-        megaMenuImg.src = newSrc;
-        megaMenuImg.classList.add('show');
-      }, 200);
-    });
-
-    // Kisi bhi mega-menu link pe click karne par menu band ho jata hai
-    link.addEventListener('click', function () {
-      if (menuToggle && megaMenu) {
-        setMenuOpen(false);
-      }
-    });
+    megaMenuImg.classList.remove('show');
+    setTimeout(function () {
+      megaMenuImg.src = newSrc;
+      megaMenuImg.classList.add('show');
+    }, 200);
   });
+
+  link.addEventListener('click', function (e) {
+    // "Packages" trigger — menu band mat karo, sirf submenu open/close karo
+    if (link.classList.contains('mega-sub-trigger')) {
+      e.preventDefault();
+      link.closest('.mega-has-sub').classList.toggle('mega-sub-open');
+      return;
+    }
+
+    // Baaki sab links (Home, About, Bike Packages, Car Packages, etc.) — menu band karo
+    if (menuToggle && megaMenu) {
+      setMenuOpen(false);
+    }
+  });
+});
 });
 
 
