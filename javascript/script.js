@@ -1,11 +1,6 @@
-
-
-
-
-
-
-// NAVBAR SCROLL 
-
+/* ============================================================
+   1. NAVBAR SCROLL — header ko scroll par 'scrolled' class dena
+   ============================================================ */
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.getElementById('siteHeader');
 
@@ -22,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', updateHeaderState);
   updateHeaderState();
 
+  /* ============================================================
+     2. HERO SLIDER — homepage hero banner slides ko auto-rotate karna
+     ============================================================ */
   const heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
   const HERO_INTERVAL = 6000;
 
@@ -48,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }, HERO_INTERVAL);
   }
 
+  /* ============================================================
+     3. PACKAGES CAROUSEL (Bike / Car tabs) — homepage carousel data
+     ============================================================ */
   const packagesData = {
     bike: [
       { title: "Motorbike Tour Ladakh – Khardung La & Pangong",            duration: "7 Days 6 Nights", img: "./images/img11.jpg", desc: "Ride through some of the world's highest motorable passes on a Royal Enfield, camping under starlit skies.", price: "31,000" },
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const filterButtons = document.querySelectorAll('.filter-btn');
   let owl = null;
 
+  // Ek package card ka HTML string banata hai (bike/car dono ke liye common)
   function cardHTML(pkg) {
     return `
       <div class="package-card">
@@ -97,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>`;
   }
 
+  // Cards ko carousel container mein render karta hai + Owl Carousel init karta hai
   function renderCards(list) {
     if (typeof jQuery === 'undefined' || !jQuery.fn.owlCarousel) {
       carouselEl.innerHTML = list.map(cardHTML).join('');
@@ -131,24 +134,30 @@ document.addEventListener('DOMContentLoaded', function () {
     owl = true;
   }
 
+  // Region (bike/car) ke hisaab se cards render karta hai
   function renderRegion(region) {
     renderCards(packagesData[region] || []);
   }
 
-const viewAllPackagesBtn = document.getElementById('viewAllPackagesBtn');
+  /* ============================================================
+     4. FILTER TABS + "VIEW ALL PACKAGES" BUTTON
+     ============================================================ */
+  const viewAllPackagesBtn = document.getElementById('viewAllPackagesBtn');
 
-const regionPageMap = {
-  bike: 'bike-packages.html',
-  car: 'car-packages.html'
-};
+  const regionPageMap = {
+    bike: 'bike-packages.html',
+    car: 'car-packages.html'
+  };
 
-function updateViewAllLink(region) {
-  if (viewAllPackagesBtn && regionPageMap[region]) {
-    viewAllPackagesBtn.setAttribute('data-href', regionPageMap[region]);
+  // Active tab ke hisaab se "View All" button ka link update karta hai
+  function updateViewAllLink(region) {
+    if (viewAllPackagesBtn && regionPageMap[region]) {
+      viewAllPackagesBtn.setAttribute('data-href', regionPageMap[region]);
+    }
   }
-}
 
-filterButtons.forEach(function (btn) {
+  // Bike/Car filter buttons pe click handle karta hai
+  filterButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterButtons.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
@@ -157,21 +166,24 @@ filterButtons.forEach(function (btn) {
     });
   });
 
-updateViewAllLink('bike'); // default active tab on page load
+  updateViewAllLink('bike'); // default active tab on page load
 
-if (viewAllPackagesBtn) {
-  viewAllPackagesBtn.addEventListener('click', function () {
-    const target = viewAllPackagesBtn.getAttribute('data-href');
-    if (target) {
-      window.location.href = target;
-    }
-  });
-}
+  if (viewAllPackagesBtn) {
+    viewAllPackagesBtn.addEventListener('click', function () {
+      const target = viewAllPackagesBtn.getAttribute('data-href');
+      if (target) {
+        window.location.href = target;
+      }
+    });
+  }
 
   if (carouselEl) {
     renderRegion('bike');
   }
 
+  /* ============================================================
+     5. FEATURED PACKAGES SECTION — homepage "Featured" grid
+     ============================================================ */
   const featuredData = [
     { title: "Adventurous Ladakh Expedition 2026 with Umling La Pass", duration: "12 Days 8 Nights", img: "./images/img5.jpg", desc: "High-altitude lake camping under starlit skies, with panoramic views of Umling La, one of the world's highest motorable passes.", price: "18,999" },
     { title: "Leh Ladakh Tour Package 2026 with Tso Moriri", duration: "10 Days 9 Nights", img: "./images/img6.jpg", desc: "Sand dunes, double-humped camels and the still waters of Tso Moriri under an open, star-filled sky.", price: "21,499" },
@@ -184,6 +196,7 @@ if (viewAllPackagesBtn) {
 
   const featuredGrid = document.getElementById('featuredGrid');
 
+  // Featured section ke liye card HTML banata hai
   function featuredCardHTML(pkg) {
     return `
       <div class="featured-card">
@@ -203,10 +216,10 @@ if (viewAllPackagesBtn) {
               <span class="price-value">₹${pkg.price}</span>
             </div>
 
-              <button class="package-cta" aria-label="Book ${pkg.title}">
+           <a href="package-detail.html">   <button class="package-cta" aria-label="Book ${pkg.title}">
   <span class="btn-text">Book Now</span>
   <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
-</button>
+</button> </a>
 
           </div>
         </div>
@@ -217,6 +230,9 @@ if (viewAllPackagesBtn) {
     featuredGrid.innerHTML = featuredData.map(featuredCardHTML).join('');
   }
 
+  /* ============================================================
+     6. SEASONAL PACKAGES SECTION — Spring/Summer/Autumn tabs
+     ============================================================ */
   const seasonsData = {
     spring: [
       { title: "Markha Valley Trek", duration: "7 Days | 2 - 12 Persons", img: "./images/img1.jpg", desc: "A gentle valley trek through green villages and apricot orchards as the snow melts.", price: "56,000" },
@@ -239,6 +255,7 @@ if (viewAllPackagesBtn) {
   const seasonGrid = document.getElementById('seasonGrid');
   const seasonItems = document.querySelectorAll('.season-item');
 
+  // Season section ke liye card HTML banata hai
   function seasonCardHTML(pkg) {
     return `
       <div class="package-card">
@@ -257,55 +274,64 @@ if (viewAllPackagesBtn) {
               <span class="price-label">Total Price</span>
               <span class="price-value">₹${pkg.price}</span>
             </div>
+            <a href="package-detail.html">
             <button class="package-cta" aria-label="Book ${pkg.title}">
               <span class="btn-text">Book Now</span>
               <span class="package-cta-arrow"><i class="bi bi-send-fill"></i></span>
             </button>
+            </a>
           </div>
         </div>
       </div>`;
   }
 
+  // Selected season ke packages ko render karta hai
   function renderSeason(season) {
     if (!seasonGrid) return;
     const list = seasonsData[season] || [];
     seasonGrid.innerHTML = list.map(seasonCardHTML).join('');
   }
 
-seasonItems.forEach(function (item) {
-  item.addEventListener('click', function () {
-    seasonItems.forEach(function (s) { s.classList.remove('active'); });
-    item.classList.add('active');
-    renderSeason(item.dataset.season);
+  // Season tabs (Spring/Summer/Autumn) pe click handle karta hai
+  seasonItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      seasonItems.forEach(function (s) { s.classList.remove('active'); });
+      item.classList.add('active');
+      renderSeason(item.dataset.season);
 
-    if (window.innerWidth <= 992 && seasonGrid) {
-      setTimeout(function () {
-        seasonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-    }
+      // Mobile/tablet pe grid tak auto-scroll kar deta hai
+      if (window.innerWidth <= 992 && seasonGrid) {
+        setTimeout(function () {
+          seasonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
+    });
   });
-});
 
   if (seasonGrid) {
     renderSeason('spring');
   }
 
+  /* ============================================================
+     7. MOBILE MENU TOGGLE (Fullscreen Mega Menu / Offcanvas)
+     ============================================================ */
   const menuToggle = document.getElementById('menuToggle');
   const megaMenu = document.getElementById('megaMenu');
 
- function setMenuOpen(isOpen) {
-  if (isOpen) {
-    megaMenu.classList.add('open');
-    menuToggle.classList.add('open');
-    document.body.classList.add('menu-open');
-  } else {
-    megaMenu.classList.remove('open');
-    menuToggle.classList.remove('open');
-    setTimeout(function () {
-      document.body.classList.remove('menu-open');
-    }, 350);
+  // Mega menu ko open/close karta hai (body scroll lock ke saath)
+  function setMenuOpen(isOpen) {
+    if (isOpen) {
+      megaMenu.classList.add('open');
+      menuToggle.classList.add('open');
+      document.body.classList.add('menu-open');
+    } else {
+      megaMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
+      setTimeout(function () {
+        document.body.classList.remove('menu-open');
+      }, 350);
+    }
   }
-}
 
   if (menuToggle && megaMenu) {
     menuToggle.addEventListener('click', function () {
@@ -313,10 +339,14 @@ seasonItems.forEach(function (item) {
     });
   }
 
+  /* ============================================================
+     8. MEGA MENU — link hover pe background image preview change
+     ============================================================ */
   const megaMenuLinks = document.querySelectorAll('.mega-menu-list a');
   const megaMenuImg = document.getElementById('megaMenuImg');
 
   megaMenuLinks.forEach(function (link) {
+    // Mouse hover pe mega-menu ki background image fade karke badalta hai
     link.addEventListener('mouseenter', function () {
       const newSrc = link.dataset.img;
       if (!newSrc) return;
@@ -333,6 +363,7 @@ seasonItems.forEach(function (item) {
       }, 200);
     });
 
+    // Kisi bhi mega-menu link pe click karne par menu band ho jata hai
     link.addEventListener('click', function () {
       if (menuToggle && megaMenu) {
         setMenuOpen(false);
@@ -341,6 +372,10 @@ seasonItems.forEach(function (item) {
   });
 });
 
+
+/* ============================================================
+   9. GALLERY — Desktop (mousemove parallax scroll effect)
+   ============================================================ */
 const galleryViewport = document.getElementById('galleryViewport');
 const galleryTrack = document.getElementById('galleryTrack');
 
@@ -380,6 +415,7 @@ if (galleryViewport && galleryTrack) {
       targetX = restX;
     });
 
+    // Smooth easing animation loop (lerp) taaki gallery track glide kare
     function animateGallery() {
       currentX += (targetX - currentX) * 0.08;
       if (Math.abs(targetX - currentX) < 0.05) currentX = targetX;
@@ -390,7 +426,9 @@ if (galleryViewport && galleryTrack) {
     animateGallery();
 
   } else {
-    // ===== MOBILE/TABLET: native scroll, but start centered =====
+    /* ============================================================
+       10. GALLERY — Mobile/Tablet (native scroll, centered on load)
+       ============================================================ */
     function centerGalleryScroll() {
       const maxScroll = Math.max(0, galleryTrack.scrollWidth - galleryViewport.clientWidth);
       galleryViewport.scrollLeft = maxScroll / 2;
@@ -401,6 +439,9 @@ if (galleryViewport && galleryTrack) {
   }
 }
 
+/* ============================================================
+   11. GALLERY LIGHTBOX — image click karne par fullscreen viewer
+   ============================================================ */
 const galleryItems = Array.from(galleryTrack.querySelectorAll('.gallery-item img'));
 const lightbox = document.getElementById('galleryLightbox');
 const lightboxImg = document.getElementById('lightboxImg');
@@ -411,6 +452,7 @@ const lightboxNext = document.getElementById('lightboxNext');
 
 let currentIndex = 0;
 
+// Lightbox mein diya gaya image index dikhata hai + counter update karta hai
 function showLightboxImage(index) {
   currentIndex = (index + galleryItems.length) % galleryItems.length;
   const target = galleryItems[currentIndex];
@@ -419,31 +461,37 @@ function showLightboxImage(index) {
   lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
 }
 
+// Lightbox kholta hai (background scroll lock ke saath)
 function openLightbox(index) {
   showLightboxImage(index);
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
+// Lightbox band karta hai
 function closeLightbox() {
   lightbox.classList.remove('active');
   document.body.style.overflow = '';
 }
 
+// Gallery ki har image pe click karne se lightbox khulta hai
 galleryItems.forEach(function (img, index) {
   img.addEventListener('click', function () {
     openLightbox(index);
   });
 });
 
+// Lightbox ke close/prev/next buttons
 lightboxClose.addEventListener('click', closeLightbox);
 lightboxPrev.addEventListener('click', function () { showLightboxImage(currentIndex - 1); });
 lightboxNext.addEventListener('click', function () { showLightboxImage(currentIndex + 1); });
 
+// Lightbox ke bahar (overlay) click karne se band ho jaye
 lightbox.addEventListener('click', function (e) {
   if (e.target === lightbox) closeLightbox();
 });
 
+// Keyboard se lightbox control — Esc band karta hai, arrows navigate karte hain
 document.addEventListener('keydown', function (e) {
   if (!lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
@@ -451,6 +499,7 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowLeft') showLightboxImage(currentIndex - 1);
 });
 
+// Har gallery item pe zoom icon overlay add karta hai
 document.querySelectorAll('.gallery-item').forEach(function (item) {
   const icon = document.createElement('span');
   icon.className = 'gallery-zoom-icon';
@@ -459,11 +508,9 @@ document.querySelectorAll('.gallery-item').forEach(function (item) {
 });
 
 
-
-
-// FAQ
-
-
+/* ============================================================
+   12. FAQ ACCORDION — questions expand/collapse
+   ============================================================ */
 function initAccordion(listId) {
   const items = document.querySelectorAll('#' + listId + ' .faq-item');
 
@@ -472,12 +519,14 @@ function initAccordion(listId) {
     const answer = item.querySelector('.faq-answer');
     const icon = item.querySelector('.faq-toggle i');
 
+    // Page load par jo item already active ho, usko khula rakhta hai
     if (item.classList.contains('active')) {
       answer.style.maxHeight = answer.scrollHeight + 'px';
       icon.classList.remove('bi-plus');
       icon.classList.add('bi-dash');
     }
 
+    // Question pe click karne par accordion toggle karta hai (ek time pe ek khula)
     question.addEventListener('click', function () {
       const isActive = item.classList.contains('active');
 
@@ -498,6 +547,7 @@ function initAccordion(listId) {
     });
   });
 
+  // Window resize hone par khule accordion ki height recalculate karta hai
   window.addEventListener('resize', function () {
     const openItem = document.querySelector('#' + listId + ' .faq-item.active');
     if (openItem) {
@@ -507,16 +557,15 @@ function initAccordion(listId) {
   });
 }
 
+// Alag-alag pages ke FAQ lists ke liye accordion initialize karta hai
 initAccordion('faqList');
 initAccordion('itineraryList');
 initAccordion('pageFaqList');
 
 
-
-
-
-// footer
-
+/* ============================================================
+   13. FOOTER — newsletter/contact form submit handle karna
+   ============================================================ */
 const footerForm = document.getElementById('footerForm');
 if (footerForm) {
   footerForm.addEventListener('submit', function (e) {
@@ -526,11 +575,6 @@ if (footerForm) {
 }
 
 
-
-
-
-
-// project detail page (hero section img)
-
-
-
+/* ============================================================
+   14. PROJECT DETAIL PAGE (hero section img) — future use ke liye reserved
+   ============================================================ */
