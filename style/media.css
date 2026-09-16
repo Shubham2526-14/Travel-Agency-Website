@@ -294,7 +294,7 @@
     .footer-logo-blank{ display: none; }
     .footer-logo-img{ width: 200px; height: auto; }
    
-        .top-bar-inner{ padding: 0px 16px; }
+        .top-bar-inner{ padding: 0px 18px; }
           
               .btn-contact{
         padding: 8px 12px;
@@ -444,7 +444,7 @@ font-size: 28px;
                 padding: 18px;
     }
     .featured-title{ font-size: 15.5px; }
-    .faq-question{ padding: 18px 20px; font-size: 14px; gap: 14px; }
+    .faq-question{ padding: 13px 20px; font-size: 14px; gap: 14px; }
     .faq-answer p{ padding: 0 20px 20px; }
     .faq-contact-card{ padding: 24px 20px; }
     .main-nav a {

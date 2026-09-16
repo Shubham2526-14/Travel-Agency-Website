@@ -41,6 +41,7 @@
              border-bottom: 1px solid rgb(0 0 0 / 16%)
             
         }
+        
 
 
 
@@ -181,11 +182,11 @@
 .site-header.scrolled .top-bar{
 border-bottom: 1px solid rgb(0 0 0 / 16%);
 }
-.site-header.scrolled .contact-wrap{
+/* .site-header.scrolled .contact-wrap{
   border-left: 1px solid rgb(0 0 0 / 16%);
 
 
-}
+} */
 .sub-nav{
     position: fixed;
     top: 0;
@@ -2531,7 +2532,10 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 
 <style>
   /* ============ ACCLIMATISATION & PRECAUTIONS SECTION ============ */
-
+.numbers-section{
+  border-radius: 100px;
+  margin: 0px 30px;
+}
 .numbers-box{
 
     border-radius: 70px;
@@ -2815,6 +2819,7 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
     .numbers-box{ padding: 80px 50px; }
 
     .page-faq-section{ padding: 120px 0px; }
+
 }
 
 @media (max-width: 1080px){
@@ -2836,6 +2841,10 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
     .date-answer-inner{ grid-template-columns: 220px 1fr; gap: 34px; }
 
     .numbers-box{ padding: 70px 40px; border-radius: 50px; }
+    .numbers-section {
+        margin: 0px 17px;
+    }
+
 
    
 
@@ -2865,6 +2874,10 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
     .sub-nav.show{ transform: translateY(60px); }
     .sub-nav-inner{ padding: 14px 20px; }
     .sub-nav-list{ gap: 22px; }
+    .numbers-section {
+    border-radius: 50px;
+    margin: 0px 12px;
+}
 }
 
 @media (max-width: 768px){
@@ -2886,8 +2899,8 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
 
     .date-answer-inner{ margin: 0 20px; padding: 22px 0 26px; }
     .booking-modal-box{ padding: 28px 24px 30px; }
-}
 
+}
 @media (max-width: 576px){
     .project-detail-section{ padding-top: 100px; }
     /* .project-main-img{ height: 260px; } */
@@ -2924,7 +2937,10 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
     .page-faq-section{ padding: 110px 0px; }
 
     .sub-nav-inner{ padding: 12px 16px; }
-    .sub-nav-list{ gap: 16px; }
+    .sub-nav-list{ gap: 16px;
+  
+  
+    }
     .sub-nav-link{ font-size: 12px; }
     .ie-list {
       gap: 7px;
@@ -2936,6 +2952,11 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
     .date-question-dates {
       gap: 30px;
     }
+        .numbers-section {
+    border-radius: 30px;
+
+}
+ 
 
 
 
@@ -2969,7 +2990,11 @@ border-bottom: 1px solid rgb(0 0 0 / 16%);
         .doc-section {
         padding: 70px 0px 55px 0px;
     }
-        .sub-nav-link{ font-size: 9px; }
+      .sub-nav-list{ 
+      justify-content: flex-start;   /* NEW */
+  
+    }
+      
 }
 
 </style>
